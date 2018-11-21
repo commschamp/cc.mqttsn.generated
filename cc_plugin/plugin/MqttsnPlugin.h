@@ -1,0 +1,33 @@
+#pragma once
+
+#include <QtCore/QObject>
+#include <QtCore/QtPlugin>
+#include "comms_champion/Plugin.h"
+
+namespace mqttsn
+{
+
+namespace cc_plugin
+{
+
+namespace plugin
+{
+
+class MqttsnPlugin : public comms_champion::Plugin
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "mqttsn" FILE "MqttsnPlugin.json")
+    Q_INTERFACES(comms_champion::Plugin)
+
+public:
+    MqttsnPlugin();
+    virtual ~MqttsnPlugin();
+};
+
+} // namespace plugin
+
+} // namespace cc_plugin
+
+} // namespace mqttsn
+
+

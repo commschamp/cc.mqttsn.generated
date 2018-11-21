@@ -1,0 +1,42 @@
+/// @file
+/// @brief Contains definition of <b>"TopicId"</b> field.
+
+#pragma once
+
+#include <cstdint>
+#include "comms/field/IntValue.h"
+#include "comms/options.h"
+#include "mqttsn/DefaultOptions.h"
+#include "mqttsn/field/FieldBase.h"
+
+namespace mqttsn
+{
+
+namespace field
+{
+
+/// @brief Definition of <b>"TopicId"</b> field.
+/// @tparam TOpt Protocol options.
+/// @tparam TExtraOpts Extra options.
+template <typename TOpt = mqttsn::DefaultOptions, typename... TExtraOpts>
+struct TopicId : public
+    comms::field::IntValue<
+        mqttsn::field::FieldBase<>,
+        std::uint16_t,
+        TExtraOpts...,
+        comms::option::ValidNumValueRange<0, 65534L>
+    >
+{
+    /// @brief Name of the field.
+    static const char* name()
+    {
+        return "TopicId";
+    }
+    
+};
+
+} // namespace field
+
+} // namespace mqttsn
+
+

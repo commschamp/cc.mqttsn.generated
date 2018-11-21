@@ -1,0 +1,18 @@
+/// @namespace mqttsn
+/// @brief Main namespace for all classes / functions of this protocol library.
+
+/// @namespace mqttsn::message
+/// @brief Main namespace for all the messages defined in this protocol.
+
+/// @namespace mqttsn::field
+/// @brief Main namespace for all the stand alone fields defined in this protocol.
+
+/// @namespace mqttsn::frame
+/// @brief Main namespace for all the frames.
+
+/// @namespace mqttsn::frame::layer
+/// @brief Main namespace for the custom frame layers.
+
+/// @namespace mqttsn::frame::checksum
+/// @brief Main namespace for the custom frame layers.
+
