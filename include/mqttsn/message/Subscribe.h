@@ -115,7 +115,8 @@ class Subscribe : public
         comms::option::StaticNumIdImpl<mqttsn::MsgId_Subscribe>,
         comms::option::FieldsImpl<typename SubscribeFields<TOpt>::All>,
         comms::option::MsgType<Subscribe<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::HasName,
+        comms::option::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -126,7 +127,8 @@ class Subscribe : public
             comms::option::StaticNumIdImpl<mqttsn::MsgId_Subscribe>,
             comms::option::FieldsImpl<typename SubscribeFields<TOpt>::All>,
             comms::option::MsgType<Subscribe<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::HasName,
+            comms::option::HasCustomRefresh
         >;
 
 public:
@@ -155,6 +157,48 @@ public:
     static const char* doName()
     {
         return "SUBSCRIBE";
+    }
+    
+    /// @brief Custom read functionality
+    template <typename TIter>
+    comms::ErrorStatus doRead(TIter& iter, std::size_t len)
+    {
+        auto es = Base::template doReadUntilAndUpdateLen<FieldIdx_msgId>(iter, len);
+        if (es != comms::ErrorStatus::Success) {
+            return es;
+        }
+    
+        doRefresh();
+        return Base::template doReadFrom<FieldIdx_msgId>(iter, len);
+    }
+    
+    /// @brief Custom refresh functionality
+    bool doRefresh()
+    {
+        auto& topicIdTypeField = field_flags().field_topicIdType();
+        using TopicIdTypeFieldType = typename std::decay<decltype(topicIdTypeField)>::type;
+        using TopicIdVal = typename TopicIdTypeFieldType::ValueType;
+        
+        bool updated = Base::doRefresh();
+        
+        auto expectedTopicIdMode = comms::field::OptionalMode::Exists;
+        auto expectedTopicNameMode = comms::field::OptionalMode::Missing;
+        if (topicIdTypeField.value() == TopicIdVal::TopicName) {
+            expectedTopicIdMode = comms::field::OptionalMode::Missing;
+            expectedTopicNameMode = comms::field::OptionalMode::Exists;
+        }
+    
+        if (field_topicId().getMode() != expectedTopicIdMode) {
+            field_topicId().setMode(expectedTopicIdMode);
+            updated = true;
+        }
+    
+        if (field_topicName().getMode() != expectedTopicNameMode) {
+            field_topicName().setMode(expectedTopicNameMode);
+            updated = true;
+        }
+    
+        return updated;
     }
     
     

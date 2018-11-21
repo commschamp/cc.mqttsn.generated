@@ -117,6 +117,31 @@ public:
         long
     );
     
+    /// @brief Extra function to get current length value
+    std::size_t getLengthValue() const
+    {
+        if (field_short().value() != 0U) {
+            return static_cast<std::size_t>(field_short().value());
+        }
+        
+        GASSERT(field_long().doesExist());
+        return static_cast<std::size_t>(field_long().field().value());
+    }
+    
+    /// @brief Extra function to set current length value
+    void setLengthValue(std::size_t val)
+    {
+        if (val <= 0xfe) {
+            field_short().value() = static_cast<std::uint8_t>(val);
+            field_long().setMissing();
+            return;
+        }
+        
+        field_short().value() = 0U;
+        field_long().setExists();
+        field_long().field().value() = static_cast<std::uint16_t>(val);
+    }
+    
     /// @brief Name of the field.
     static const char* name()
     {
