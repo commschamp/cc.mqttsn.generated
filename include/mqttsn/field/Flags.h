@@ -91,6 +91,7 @@ struct FlagsMembers
         AtMostOnceDelivery = 0, ///< value @b AtMostOnceDelivery
         AtLeastOnceDelivery = 1, ///< value @b AtLeastOnceDelivery
         ExactlyOnceDelivery = 2, ///< value @b ExactlyOnceDelivery
+        NoGwPublish = 3, ///< value @b NoGwPublish
         
     };
     
@@ -100,7 +101,7 @@ struct FlagsMembers
             mqttsn::field::FieldBase<>,
             QoSVal,
             comms::option::FixedBitLength<2U>,
-            comms::option::ValidNumValueRange<0, 2>
+            comms::option::ValidNumValueRange<0, 3>
         >
     {
         /// @brief Name of the field.

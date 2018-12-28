@@ -61,6 +61,7 @@ struct FlagsMembers
                 .add("AtMostOnceDelivery", 0)
                 .add("AtLeastOnceDelivery", 1)
                 .add("ExactlyOnceDelivery", 2)
+                .add("NoGwPublish", 3)
                 .asMap();
         
     }
