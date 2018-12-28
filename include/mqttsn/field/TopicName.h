@@ -21,8 +21,8 @@ template <typename TOpt = mqttsn::DefaultOptions, typename... TExtraOpts>
 struct TopicName : public
     comms::field::String<
         mqttsn::field::FieldBase<>,
-        typename TOpt::field::TopicName,
-        TExtraOpts...
+        TExtraOpts...,
+        typename TOpt::field::TopicName
     >
 {
     /// @brief Name of the field.

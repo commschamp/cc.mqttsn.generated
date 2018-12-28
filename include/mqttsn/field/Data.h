@@ -23,8 +23,8 @@ struct Data : public
     comms::field::ArrayList<
         mqttsn::field::FieldBase<>,
         std::uint8_t,
-        typename TOpt::field::Data,
-        TExtraOpts...
+        TExtraOpts...,
+        typename TOpt::field::Data
     >
 {
     /// @brief Name of the field.

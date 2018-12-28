@@ -23,8 +23,8 @@ struct GwAdd : public
     comms::field::ArrayList<
         mqttsn::field::FieldBase<>,
         std::uint8_t,
-        typename TOpt::field::GwAdd,
-        TExtraOpts...
+        TExtraOpts...,
+        typename TOpt::field::GwAdd
     >
 {
     /// @brief Name of the field.

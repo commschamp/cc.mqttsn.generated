@@ -23,8 +23,8 @@ struct WillMsg : public
     comms::field::ArrayList<
         mqttsn::field::FieldBase<>,
         std::uint8_t,
-        typename TOpt::field::WillMsg,
-        TExtraOpts...
+        TExtraOpts...,
+        typename TOpt::field::WillMsg
     >
 {
     /// @brief Name of the field.
