@@ -15,7 +15,7 @@ namespace mqttsn
 namespace field
 {
 
-/// @brief Values enumerator for @ref ReturnCode field.
+/// @brief Values enumerator for @ref mqttsn::field::ReturnCode field.
 enum class ReturnCodeVal : std::uint8_t
 {
     Accepted = 0, ///< value @b Accepted
@@ -26,6 +26,7 @@ enum class ReturnCodeVal : std::uint8_t
 };
 
 /// @brief Definition of <b>"ReturnCode"</b> field.
+/// @see @ref mqttsn::field::ReturnCodeVal
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqttsn::DefaultOptions, typename... TExtraOpts>
