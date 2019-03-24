@@ -14,8 +14,8 @@ function (cc_plugin_all_messages)
         field/MessageId.cpp
         field/MsgId.cpp
         field/MsgLengthField.cpp
-        field/Radius.cpp
         field/ProtocolId.cpp
+        field/Radius.cpp
         field/ReturnCode.cpp
         field/TopicId.cpp
         field/TopicName.cpp

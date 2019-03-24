@@ -20,6 +20,12 @@ inline constexpr unsigned version()
 } // namespace mqttsn
 
 
+// Generated compile time check for minimal supported version of the COMMS library
 static_assert(COMMS_MAKE_VERSION(1, 0, 0) <= comms::version(),
+    "The version of COMMS library is too old");
+
+// Extra version check: mqttsn::frame::layer::Length uses 
+// features introduced in v1.2 of the COMMS library.
+static_assert(COMMS_MAKE_VERSION(1, 2, 0) <= comms::version(),
     "The version of COMMS library is too old");
 

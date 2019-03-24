@@ -23,7 +23,7 @@ namespace field
 template <typename TOpt = mqttsn::DefaultOptions>
 struct FlagsMembers
 {
-    /// @brief Values enumerator for @ref TopicIdType field.
+    /// @brief Values enumerator for @ref mqttsn::field::FlagsMembers::TopicIdType field.
     enum class TopicIdTypeVal : std::uint8_t
     {
         NormalTopicId = 0, ///< value @b NormalTopicId
@@ -33,6 +33,7 @@ struct FlagsMembers
     };
     
     /// @brief Definition of <b>"TopicIdType"</b> field.
+    /// @see @ref mqttsn::field::FlagsMembers::TopicIdTypeVal
     struct TopicIdType : public
         comms::field::EnumValue<
             mqttsn::field::FieldBase<>,
@@ -85,7 +86,7 @@ struct FlagsMembers
         
     };
     
-    /// @brief Values enumerator for @ref QoS field.
+    /// @brief Values enumerator for @ref mqttsn::field::FlagsMembers::QoS field.
     enum class QoSVal : std::uint8_t
     {
         AtMostOnceDelivery = 0, ///< value @b AtMostOnceDelivery
@@ -96,6 +97,7 @@ struct FlagsMembers
     };
     
     /// @brief Definition of <b>"QoS"</b> field.
+    /// @see @ref mqttsn::field::FlagsMembers::QoSVal
     struct QoS : public
         comms::field::EnumValue<
             mqttsn::field::FieldBase<>,
