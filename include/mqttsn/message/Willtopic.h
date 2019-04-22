@@ -6,11 +6,11 @@
 #include <tuple>
 #include "comms/MessageBase.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/FieldBase.h"
 #include "mqttsn/field/Flags.h"
 #include "mqttsn/field/WillTopic.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -22,20 +22,20 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Willtopic
 /// @headerfile "mqttsn/message/Willtopic.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct WilltopicFields
 {
     /// @brief Definition of <b>"Flags"</b> field.
     using Flags =
         mqttsn::field::Flags<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"WillTopic"</b> field.
     using WillTopic =
         mqttsn::field::WillTopic<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
@@ -50,7 +50,7 @@ struct WilltopicFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "mqttsn/message/Willtopic.h"
-template <typename TMsgBase, typename TOpt = mqttsn::DefaultOptions>
+template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Willtopic : public
     comms::MessageBase<
         TMsgBase,

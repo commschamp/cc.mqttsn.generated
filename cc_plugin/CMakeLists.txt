@@ -6,8 +6,8 @@ function (cc_plugin_all_messages)
     set (name "${ALL_MESSAGES_LIB}")
     set (src
         field/ClientId.cpp
-        field/Data.cpp
         field/Duration.cpp
+        field/Data.cpp
         field/Flags.cpp
         field/GwAdd.cpp
         field/GwId.cpp
@@ -16,8 +16,8 @@ function (cc_plugin_all_messages)
         field/MsgLengthField.cpp
         field/ProtocolId.cpp
         field/Radius.cpp
-        field/ReturnCode.cpp
         field/TopicId.cpp
+        field/ReturnCode.cpp
         field/TopicName.cpp
         field/WillMsg.cpp
         field/WillTopic.cpp
@@ -62,7 +62,7 @@ function (cc_plugin_all_messages)
         endif()
     endif ()
 
-    if (OPT_FULL_SOLUTION)
+    if (TARGET ${CC_EXTERNAL_TGT})
         add_dependencies(${name} ${CC_EXTERNAL_TGT})
     endif ()
 endfunction()
@@ -139,7 +139,7 @@ cc_plugin_all_messages()
 
 cc_plugin ("Mqttsn")
 
-if (OPT_FULL_SOLUTION)
+if (TARGET ${CC_EXTERNAL_TGT})
     install (
         FILES plugin/Mqttsn.cfg
         DESTINATION ${CONFIG_INSTALL_DIR}

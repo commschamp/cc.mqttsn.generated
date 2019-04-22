@@ -2,7 +2,7 @@
 
 #include "mqttsn/frame/Frame.h"
 #include "cc_plugin/Message.h"
-#include "cc_plugin/AllMessages.h"
+#include "cc_plugin/input/AllMessages.h"
 
 namespace mqttsn
 {
@@ -16,7 +16,7 @@ namespace frame
 using Frame =
     mqttsn::frame::Frame<
         mqttsn::cc_plugin::Message,
-        mqttsn::cc_plugin::AllMessages
+        mqttsn::cc_plugin::input::AllMessages
     >;
 
 } // namespace frame

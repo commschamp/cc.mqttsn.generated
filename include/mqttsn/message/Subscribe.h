@@ -7,13 +7,13 @@
 #include "comms/MessageBase.h"
 #include "comms/field/Optional.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/FieldBase.h"
 #include "mqttsn/field/Flags.h"
 #include "mqttsn/field/MessageId.h"
 #include "mqttsn/field/TopicId.h"
 #include "mqttsn/field/TopicName.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -25,20 +25,20 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Subscribe
 /// @headerfile "mqttsn/message/Subscribe.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct SubscribeFields
 {
     /// @brief Definition of <b>"Flags"</b> field.
     using Flags =
         mqttsn::field::Flags<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"MsgId"</b> field.
     using MsgId =
         mqttsn::field::MessageId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Scope for all the member fields of @ref TopicId optional.
     struct TopicIdMembers
@@ -46,8 +46,8 @@ struct SubscribeFields
         /// @brief Definition of <b>"TopicId"</b> field.
         using TopicId =
             mqttsn::field::TopicId<
-               TOpt
-           >;
+                TOpt
+            >;
         
     };
     
@@ -72,8 +72,8 @@ struct SubscribeFields
         /// @brief Definition of <b>"TopicName"</b> field.
         using TopicName =
             mqttsn::field::TopicName<
-               TOpt
-           >;
+                TOpt
+            >;
         
     };
     
@@ -107,7 +107,7 @@ struct SubscribeFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "mqttsn/message/Subscribe.h"
-template <typename TMsgBase, typename TOpt = mqttsn::DefaultOptions>
+template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Subscribe : public
     comms::MessageBase<
         TMsgBase,

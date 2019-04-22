@@ -9,8 +9,8 @@
 #include "comms/field/IntValue.h"
 #include "comms/field/Optional.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/field/FieldBase.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -20,7 +20,7 @@ namespace field
 
 /// @brief Scope for all the member fields of @ref MsgLengthField bitfield.
 /// @tparam TOpt Protocol options.
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct MsgLengthFieldMembers
 {
     /// @brief Definition of <b>"short"</b> field.
@@ -85,7 +85,7 @@ struct MsgLengthFieldMembers
 /// @brief Definition of <b>"Length"</b> field.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
-template <typename TOpt = mqttsn::DefaultOptions, typename... TExtraOpts>
+template <typename TOpt = mqttsn::options::DefaultOptions, typename... TExtraOpts>
 class MsgLengthField : public
     comms::field::Bundle<
         mqttsn::field::FieldBase<>,

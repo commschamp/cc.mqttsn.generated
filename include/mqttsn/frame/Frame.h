@@ -5,11 +5,11 @@
 
 #include "comms/protocol/MsgDataLayer.h"
 #include "comms/protocol/MsgIdLayer.h"
-#include "mqttsn/AllMessages.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/field/MsgId.h"
 #include "mqttsn/field/MsgLengthField.h"
 #include "mqttsn/frame/layer/Length.h"
+#include "mqttsn/input/AllMessages.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -21,7 +21,7 @@ namespace frame
 /// @tparam TOpt Protocol options.
 /// @see @ref Frame
 /// @headerfile "mqttsn/frame/Frame.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct FrameLayers
 {
     /// @brief Definition of layer "Data".
@@ -63,8 +63,8 @@ struct FrameLayers
 /// @headerfile "mqttsn/frame/Frame.h"
 template <
    typename TMessage,
-   typename TAllMessages = mqttsn::AllMessages<TMessage>,
-   typename TOpt = mqttsn::DefaultOptions
+   typename TAllMessages = mqttsn::input::AllMessages<TMessage>,
+   typename TOpt = mqttsn::options::DefaultOptions
 >
 class Frame : public
     FrameLayers<TOpt>::template Stack<TMessage, TAllMessages>
