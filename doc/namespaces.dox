@@ -16,3 +16,9 @@
 /// @namespace mqttsn::frame::checksum
 /// @brief Main namespace for the custom frame layers.
 
+/// @namespace mqttsn::options
+/// @brief Main namespace for the various protocol options.
+
+/// @namespace mqttsn::input
+/// @brief Main namespace for hold input messages bundles.
+

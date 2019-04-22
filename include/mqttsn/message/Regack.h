@@ -6,12 +6,12 @@
 #include <tuple>
 #include "comms/MessageBase.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/FieldBase.h"
 #include "mqttsn/field/MessageId.h"
 #include "mqttsn/field/ReturnCode.h"
 #include "mqttsn/field/TopicId.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -23,26 +23,26 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Regack
 /// @headerfile "mqttsn/message/Regack.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct RegackFields
 {
     /// @brief Definition of <b>"TopicId"</b> field.
     using TopicId =
         mqttsn::field::TopicId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"MsgId"</b> field.
     using MsgId =
         mqttsn::field::MessageId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"ReturnCode"</b> field.
     using ReturnCode =
         mqttsn::field::ReturnCode<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
@@ -58,7 +58,7 @@ struct RegackFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "mqttsn/message/Regack.h"
-template <typename TMsgBase, typename TOpt = mqttsn::DefaultOptions>
+template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Regack : public
     comms::MessageBase<
         TMsgBase,

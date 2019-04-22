@@ -6,10 +6,10 @@
 #include <tuple>
 #include "comms/MessageBase.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/FieldBase.h"
 #include "mqttsn/field/WillMsg.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -21,14 +21,14 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Willmsgupd
 /// @headerfile "mqttsn/message/Willmsgupd.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct WillmsgupdFields
 {
     /// @brief Definition of <b>"WillMsg"</b> field.
     using WillMsg =
         mqttsn::field::WillMsg<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
@@ -42,7 +42,7 @@ struct WillmsgupdFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "mqttsn/message/Willmsgupd.h"
-template <typename TMsgBase, typename TOpt = mqttsn::DefaultOptions>
+template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Willmsgupd : public
     comms::MessageBase<
         TMsgBase,

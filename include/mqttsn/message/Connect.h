@@ -6,13 +6,13 @@
 #include <tuple>
 #include "comms/MessageBase.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/ClientId.h"
 #include "mqttsn/field/Duration.h"
 #include "mqttsn/field/FieldBase.h"
 #include "mqttsn/field/Flags.h"
 #include "mqttsn/field/ProtocolId.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -24,32 +24,32 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Connect
 /// @headerfile "mqttsn/message/Connect.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct ConnectFields
 {
     /// @brief Definition of <b>"Flags"</b> field.
     using Flags =
         mqttsn::field::Flags<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"ProtocolId"</b> field.
     using ProtocolId =
         mqttsn::field::ProtocolId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"Duration"</b> field.
     using Duration =
         mqttsn::field::Duration<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"ClientId"</b> field.
     using ClientId =
         mqttsn::field::ClientId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
@@ -66,7 +66,7 @@ struct ConnectFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "mqttsn/message/Connect.h"
-template <typename TMsgBase, typename TOpt = mqttsn::DefaultOptions>
+template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Connect : public
     comms::MessageBase<
         TMsgBase,

@@ -6,11 +6,11 @@
 #include <tuple>
 #include "comms/MessageBase.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/Duration.h"
 #include "mqttsn/field/FieldBase.h"
 #include "mqttsn/field/GwId.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -22,20 +22,20 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Advertise
 /// @headerfile "mqttsn/message/Advertise.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct AdvertiseFields
 {
     /// @brief Definition of <b>"GwId"</b> field.
     using GwId =
         mqttsn::field::GwId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"Duration"</b> field.
     using Duration =
         mqttsn::field::Duration<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
@@ -50,7 +50,7 @@ struct AdvertiseFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "mqttsn/message/Advertise.h"
-template <typename TMsgBase, typename TOpt = mqttsn::DefaultOptions>
+template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Advertise : public
     comms::MessageBase<
         TMsgBase,

@@ -5,27 +5,60 @@
 
 #include "comms/version.h"
 
-/// @brief Version of the protocol library as single numeric value
-#define MQTTSN_VERSION (0U)
+/// @brief Version of the protocol specification.
+#define MQTTSN_SPEC_VERSION (0U)
+
+/// @brief Major version of the protocol library.
+#define MQTTSN_MAJOR_VERSION (0U)
+
+/// @brief Minor version of the protocol library.
+#define MQTTSN_MINOR_VERSION (6U)
+
+/// @brief Patch version of the protocol library.
+#define MQTTSN_PATCH_VERSION (0U)
+
+/// @brief Full version of the protocol library as single number.
+#define MQTTSN_VERSION (COMMS_MAKE_VERSION(MQTTSN_MAJOR_VERSION, MQTTSN_MINOR_VERSION, MQTTSN_MINOR_VERSION))
+
 
 namespace mqttsn
 {
 
-/// @brief Version of the protocol library as single numeric value
+/// @brief Version of the protocol specification.
+inline constexpr unsigned specVersion()
+{
+    return MQTTSN_SPEC_VERSION;
+}
+
+/// @brief Major version of the protocol library
+inline constexpr unsigned versionMajor()
+{
+    return MQTTSN_MAJOR_VERSION;
+}
+
+/// @brief Minor version of the protocol library
+inline constexpr unsigned versionMinor()
+{
+    return MQTTSN_MINOR_VERSION;
+}
+
+/// @brief Patch version of the protocol library
+inline constexpr unsigned versionPatch()
+{
+    return MQTTSN_PATCH_VERSION;
+}
+
+/// @brief Full version of the protocol library as single number
 inline constexpr unsigned version()
 {
     return MQTTSN_VERSION;
 }
 
+
 } // namespace mqttsn
 
 
 // Generated compile time check for minimal supported version of the COMMS library
-static_assert(COMMS_MAKE_VERSION(1, 0, 0) <= comms::version(),
-    "The version of COMMS library is too old");
-
-// Extra version check: mqttsn::frame::layer::Length uses 
-// features introduced in v1.2 of the COMMS library.
-static_assert(COMMS_MAKE_VERSION(1, 2, 0) <= comms::version(),
+static_assert(COMMS_MAKE_VERSION(1, 2, 2) <= comms::version(),
     "The version of COMMS library is too old");
 

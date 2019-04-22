@@ -7,10 +7,10 @@
 #include "comms/MessageBase.h"
 #include "comms/field/Optional.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/Duration.h"
 #include "mqttsn/field/FieldBase.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -22,7 +22,7 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Disconnect
 /// @headerfile "mqttsn/message/Disconnect.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct DisconnectFields
 {
     /// @brief Scope for all the member fields of @ref Duration optional.
@@ -31,8 +31,8 @@ struct DisconnectFields
         /// @brief Definition of <b>"Duration"</b> field.
         using Duration =
             mqttsn::field::Duration<
-               TOpt
-           >;
+                TOpt
+            >;
         
     };
     
@@ -63,7 +63,7 @@ struct DisconnectFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "mqttsn/message/Disconnect.h"
-template <typename TMsgBase, typename TOpt = mqttsn::DefaultOptions>
+template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Disconnect : public
     comms::MessageBase<
         TMsgBase,

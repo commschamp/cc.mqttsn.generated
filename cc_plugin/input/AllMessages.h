@@ -35,6 +35,9 @@ namespace mqttsn
 namespace cc_plugin
 {
 
+namespace input
+{
+
 using AllMessages =
     std::tuple<
         mqttsn::cc_plugin::message::Advertise,
@@ -65,6 +68,8 @@ using AllMessages =
         mqttsn::cc_plugin::message::Willmsgupd,
         mqttsn::cc_plugin::message::Willmsgresp
     >;
+
+} // namespace input
 
 } // namespace cc_plugin
 

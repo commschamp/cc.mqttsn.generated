@@ -4,10 +4,11 @@
 #pragma once
 
 #include <cstdint>
+#include <type_traits>
 #include "comms/field/EnumValue.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/field/FieldBase.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -29,7 +30,7 @@ enum class ReturnCodeVal : std::uint8_t
 /// @see @ref mqttsn::field::ReturnCodeVal
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
-template <typename TOpt = mqttsn::DefaultOptions, typename... TExtraOpts>
+template <typename TOpt = mqttsn::options::DefaultOptions, typename... TExtraOpts>
 struct ReturnCode : public
     comms::field::EnumValue<
         mqttsn::field::FieldBase<>,
@@ -42,6 +43,24 @@ struct ReturnCode : public
     static const char* name()
     {
         return "ReturnCode";
+    }
+    
+    /// @brief Retrieve name of the enum value
+    static const char* valueName(ReturnCodeVal val)
+    {
+        static const char* Map[] = {
+            "Accepted",
+            "Congestion",
+            "InvalidTopicId",
+            "NotSupported"
+        };
+        static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+        
+        if (MapSize <= static_cast<std::size_t>(val)) {
+            return nullptr;
+        }
+        
+        return Map[static_cast<std::size_t>(val)];
     }
     
 };

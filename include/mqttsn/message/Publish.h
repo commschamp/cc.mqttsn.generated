@@ -6,13 +6,13 @@
 #include <tuple>
 #include "comms/MessageBase.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/Data.h"
 #include "mqttsn/field/FieldBase.h"
 #include "mqttsn/field/Flags.h"
 #include "mqttsn/field/MessageId.h"
 #include "mqttsn/field/TopicId.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -24,32 +24,32 @@ namespace message
 /// @tparam TOpt Extra options
 /// @see @ref Publish
 /// @headerfile "mqttsn/message/Publish.h"
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct PublishFields
 {
     /// @brief Definition of <b>"Flags"</b> field.
     using Flags =
         mqttsn::field::Flags<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"TopicId"</b> field.
     using TopicId =
         mqttsn::field::TopicId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"MsgId"</b> field.
     using MsgId =
         mqttsn::field::MessageId<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief Definition of <b>"Data"</b> field.
     using Data =
         mqttsn::field::Data<
-           TOpt
-       >;
+            TOpt
+        >;
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
@@ -66,7 +66,7 @@ struct PublishFields
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
 /// @headerfile "mqttsn/message/Publish.h"
-template <typename TMsgBase, typename TOpt = mqttsn::DefaultOptions>
+template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Publish : public
     comms::MessageBase<
         TMsgBase,

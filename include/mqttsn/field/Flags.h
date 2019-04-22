@@ -5,12 +5,13 @@
 
 #include <cstdint>
 #include <tuple>
+#include <type_traits>
 #include "comms/field/Bitfield.h"
 #include "comms/field/BitmaskValue.h"
 #include "comms/field/EnumValue.h"
 #include "comms/options.h"
-#include "mqttsn/DefaultOptions.h"
 #include "mqttsn/field/FieldBase.h"
+#include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
 {
@@ -20,7 +21,7 @@ namespace field
 
 /// @brief Scope for all the member fields of @ref Flags bitfield.
 /// @tparam TOpt Protocol options.
-template <typename TOpt = mqttsn::DefaultOptions>
+template <typename TOpt = mqttsn::options::DefaultOptions>
 struct FlagsMembers
 {
     /// @brief Values enumerator for @ref mqttsn::field::FlagsMembers::TopicIdType field.
@@ -46,6 +47,23 @@ struct FlagsMembers
         static const char* name()
         {
             return "TopicIdType";
+        }
+        
+        /// @brief Retrieve name of the enum value
+        static const char* valueName(TopicIdTypeVal val)
+        {
+            static const char* Map[] = {
+                "NormalTopicId",
+                "PredefinedTopicId",
+                "TopicName"
+            };
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            
+            if (MapSize <= static_cast<std::size_t>(val)) {
+                return nullptr;
+            }
+            
+            return Map[static_cast<std::size_t>(val)];
         }
         
     };
@@ -84,6 +102,25 @@ struct FlagsMembers
             return "";
         }
         
+        /// @brief Retrieve name of the bit
+        static const char* bitName(BitIdx idx)
+        {
+            static const char* Map[] = {
+                "CleanSession",
+                "Will",
+                "Retain"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
+        
+            if (MapSize <= static_cast<std::size_t>(idx)) {
+                return nullptr;
+            }
+        
+            return Map[static_cast<std::size_t>(idx)];
+        }
+        
     };
     
     /// @brief Values enumerator for @ref mqttsn::field::FlagsMembers::QoS field.
@@ -110,6 +147,24 @@ struct FlagsMembers
         static const char* name()
         {
             return "QoS";
+        }
+        
+        /// @brief Retrieve name of the enum value
+        static const char* valueName(QoSVal val)
+        {
+            static const char* Map[] = {
+                "AtMostOnceDelivery",
+                "AtLeastOnceDelivery",
+                "ExactlyOnceDelivery",
+                "NoGwPublish"
+            };
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            
+            if (MapSize <= static_cast<std::size_t>(val)) {
+                return nullptr;
+            }
+            
+            return Map[static_cast<std::size_t>(val)];
         }
         
     };
@@ -144,6 +199,23 @@ struct FlagsMembers
             return "";
         }
         
+        /// @brief Retrieve name of the bit
+        static const char* bitName(BitIdx idx)
+        {
+            static const char* Map[] = {
+                "Dup"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
+        
+            if (MapSize <= static_cast<std::size_t>(idx)) {
+                return nullptr;
+            }
+        
+            return Map[static_cast<std::size_t>(idx)];
+        }
+        
     };
     
     /// @brief All members bundled in @b std::tuple.
@@ -159,7 +231,7 @@ struct FlagsMembers
 /// @brief Definition of <b>"Flags"</b> field.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
-template <typename TOpt = mqttsn::DefaultOptions, typename... TExtraOpts>
+template <typename TOpt = mqttsn::options::DefaultOptions, typename... TExtraOpts>
 class Flags : public
     comms::field::Bitfield<
         mqttsn::field::FieldBase<>,
