@@ -1,5 +1,6 @@
 #include "Flags.h"
 
+#include "cc_plugin/field/QoS.h"
 #include "comms_champion/property/field.h"
 #include "mqttsn/field/Flags.h"
 
@@ -54,15 +55,7 @@ struct FlagsMembers
     {
         static_cast<void>(serHidden);
         using Field = mqttsn::field::FlagsMembers<>::QoS;
-        return
-            cc::property::field::ForField<Field>()
-                .name(Field::name())
-                .serialisedHidden()
-                .add("AtMostOnceDelivery", 0)
-                .add("AtLeastOnceDelivery", 1)
-                .add("ExactlyOnceDelivery", 2)
-                .add("NoGwPublish", 3)
-                .asMap();
+        return cc_plugin::field::createProps_qoS(Field::name(), true);
         
     }
     
