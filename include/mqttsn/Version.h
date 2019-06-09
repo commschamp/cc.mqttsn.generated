@@ -12,10 +12,10 @@
 #define MQTTSN_MAJOR_VERSION (0U)
 
 /// @brief Minor version of the protocol library.
-#define MQTTSN_MINOR_VERSION (6U)
+#define MQTTSN_MINOR_VERSION (7U)
 
 /// @brief Patch version of the protocol library.
-#define MQTTSN_PATCH_VERSION (1U)
+#define MQTTSN_PATCH_VERSION (0U)
 
 /// @brief Full version of the protocol library as single number.
 #define MQTTSN_VERSION (COMMS_MAKE_VERSION(MQTTSN_MAJOR_VERSION, MQTTSN_MINOR_VERSION, MQTTSN_PATCH_VERSION))
@@ -59,6 +59,6 @@ inline constexpr unsigned version()
 
 
 // Generated compile time check for minimal supported version of the COMMS library
-static_assert(COMMS_MAKE_VERSION(1, 2, 2) <= comms::version(),
+static_assert(COMMS_MAKE_VERSION(1, 3, 0) <= comms::version(),
     "The version of COMMS library is too old");
 

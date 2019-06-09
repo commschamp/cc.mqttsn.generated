@@ -11,6 +11,7 @@
 #include "comms/field/EnumValue.h"
 #include "comms/options.h"
 #include "mqttsn/field/FieldBase.h"
+#include "mqttsn/field/QoS.h"
 #include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
@@ -123,51 +124,12 @@ struct FlagsMembers
         
     };
     
-    /// @brief Values enumerator for @ref mqttsn::field::FlagsMembers::QoS field.
-    enum class QoSVal : std::uint8_t
-    {
-        AtMostOnceDelivery = 0, ///< value @b AtMostOnceDelivery
-        AtLeastOnceDelivery = 1, ///< value @b AtLeastOnceDelivery
-        ExactlyOnceDelivery = 2, ///< value @b ExactlyOnceDelivery
-        NoGwPublish = 3, ///< value @b NoGwPublish
-        
-    };
-    
     /// @brief Definition of <b>"QoS"</b> field.
-    /// @see @ref mqttsn::field::FlagsMembers::QoSVal
-    struct QoS : public
-        comms::field::EnumValue<
-            mqttsn::field::FieldBase<>,
-            QoSVal,
-            comms::option::FixedBitLength<2U>,
-            comms::option::ValidNumValueRange<0, 3>
-        >
-    {
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return "QoS";
-        }
-        
-        /// @brief Retrieve name of the enum value
-        static const char* valueName(QoSVal val)
-        {
-            static const char* Map[] = {
-                "AtMostOnceDelivery",
-                "AtLeastOnceDelivery",
-                "ExactlyOnceDelivery",
-                "NoGwPublish"
-            };
-            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-            
-            if (MapSize <= static_cast<std::size_t>(val)) {
-                return nullptr;
-            }
-            
-            return Map[static_cast<std::size_t>(val)];
-        }
-        
-    };
+    using QoS =
+        mqttsn::field::QoS<
+            TOpt,
+            comms::option::FixedBitLength<2U>
+        >;
     
     /// @brief Definition of <b>""</b> field.
     class High : public

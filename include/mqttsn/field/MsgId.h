@@ -66,7 +66,7 @@ struct MsgId : public
             std::make_pair(mqttsn::MsgId_Unsubscribe, "UNSUBSCRIBE"),
             std::make_pair(mqttsn::MsgId_Unsuback, "UNSUBACK"),
             std::make_pair(mqttsn::MsgId_Pingreq, "PINGREQ"),
-            std::make_pair(mqttsn::MsgId_Pingresp, "PINGRESP"),
+            std::make_pair(mqttsn::MsgId_Pingresp, "fPINGRESP"),
             std::make_pair(mqttsn::MsgId_Disconnect, "DISCONNECT"),
             std::make_pair(mqttsn::MsgId_Willtopicupd, "WILLTOPICUPD"),
             std::make_pair(mqttsn::MsgId_Willtopicresp, "WILLTOPICRESP"),
