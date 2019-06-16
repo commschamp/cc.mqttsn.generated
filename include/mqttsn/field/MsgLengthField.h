@@ -124,7 +124,7 @@ public:
             return static_cast<std::size_t>(field_short().value());
         }
         
-        GASSERT(field_long().doesExist());
+        COMMS_ASSERT(field_long().doesExist());
         return static_cast<std::size_t>(field_long().field().value());
     }
     
