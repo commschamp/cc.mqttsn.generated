@@ -55,10 +55,10 @@ class Advertise : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Advertise,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Advertise>,
-        comms::option::FieldsImpl<typename AdvertiseFields<TOpt>::All>,
-        comms::option::MsgType<Advertise<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Advertise>,
+        comms::option::def::FieldsImpl<typename AdvertiseFields<TOpt>::All>,
+        comms::option::def::MsgType<Advertise<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -66,10 +66,10 @@ class Advertise : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Advertise,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Advertise>,
-            comms::option::FieldsImpl<typename AdvertiseFields<TOpt>::All>,
-            comms::option::MsgType<Advertise<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Advertise>,
+            comms::option::def::FieldsImpl<typename AdvertiseFields<TOpt>::All>,
+            comms::option::def::MsgType<Advertise<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

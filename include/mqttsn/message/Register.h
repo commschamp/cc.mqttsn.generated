@@ -62,20 +62,20 @@ template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Register : public
     comms::MessageBase<
         TMsgBase,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Register>,
-        comms::option::FieldsImpl<typename RegisterFields<TOpt>::All>,
-        comms::option::MsgType<Register<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Register>,
+        comms::option::def::FieldsImpl<typename RegisterFields<TOpt>::All>,
+        comms::option::def::MsgType<Register<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
     using Base =
         comms::MessageBase<
             TMsgBase,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Register>,
-            comms::option::FieldsImpl<typename RegisterFields<TOpt>::All>,
-            comms::option::MsgType<Register<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Register>,
+            comms::option::def::FieldsImpl<typename RegisterFields<TOpt>::All>,
+            comms::option::def::MsgType<Register<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

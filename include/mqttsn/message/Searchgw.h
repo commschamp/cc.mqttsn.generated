@@ -47,10 +47,10 @@ class Searchgw : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Searchgw,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Searchgw>,
-        comms::option::FieldsImpl<typename SearchgwFields<TOpt>::All>,
-        comms::option::MsgType<Searchgw<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Searchgw>,
+        comms::option::def::FieldsImpl<typename SearchgwFields<TOpt>::All>,
+        comms::option::def::MsgType<Searchgw<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -58,10 +58,10 @@ class Searchgw : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Searchgw,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Searchgw>,
-            comms::option::FieldsImpl<typename SearchgwFields<TOpt>::All>,
-            comms::option::MsgType<Searchgw<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Searchgw>,
+            comms::option::def::FieldsImpl<typename SearchgwFields<TOpt>::All>,
+            comms::option::def::MsgType<Searchgw<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

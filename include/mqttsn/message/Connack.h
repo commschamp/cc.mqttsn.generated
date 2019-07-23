@@ -47,10 +47,10 @@ class Connack : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Connack,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Connack>,
-        comms::option::FieldsImpl<typename ConnackFields<TOpt>::All>,
-        comms::option::MsgType<Connack<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Connack>,
+        comms::option::def::FieldsImpl<typename ConnackFields<TOpt>::All>,
+        comms::option::def::MsgType<Connack<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -58,10 +58,10 @@ class Connack : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Connack,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Connack>,
-            comms::option::FieldsImpl<typename ConnackFields<TOpt>::All>,
-            comms::option::MsgType<Connack<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Connack>,
+            comms::option::def::FieldsImpl<typename ConnackFields<TOpt>::All>,
+            comms::option::def::MsgType<Connack<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

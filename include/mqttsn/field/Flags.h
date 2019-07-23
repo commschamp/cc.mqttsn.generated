@@ -40,8 +40,8 @@ struct FlagsMembers
         comms::field::EnumValue<
             mqttsn::field::FieldBase<>,
             TopicIdTypeVal,
-            comms::option::FixedBitLength<2U>,
-            comms::option::ValidNumValueRange<0, 2>
+            comms::option::def::FixedBitLength<2U>,
+            comms::option::def::ValidNumValueRange<0, 2>
         >
     {
         /// @brief Name of the field.
@@ -73,13 +73,13 @@ struct FlagsMembers
     class Mid : public
         comms::field::BitmaskValue<
             mqttsn::field::FieldBase<>,
-            comms::option::FixedBitLength<3U>
+            comms::option::def::FixedBitLength<3U>
         >
     {
         using Base = 
             comms::field::BitmaskValue<
                 mqttsn::field::FieldBase<>,
-                comms::option::FixedBitLength<3U>
+                comms::option::def::FixedBitLength<3U>
             >;
     public:
         /// @brief Provides names and generates access functions for internal bits.
@@ -128,20 +128,20 @@ struct FlagsMembers
     using QoS =
         mqttsn::field::QoS<
             TOpt,
-            comms::option::FixedBitLength<2U>
+            comms::option::def::FixedBitLength<2U>
         >;
     
     /// @brief Definition of <b>""</b> field.
     class High : public
         comms::field::BitmaskValue<
             mqttsn::field::FieldBase<>,
-            comms::option::FixedBitLength<1U>
+            comms::option::def::FixedBitLength<1U>
         >
     {
         using Base = 
             comms::field::BitmaskValue<
                 mqttsn::field::FieldBase<>,
-                comms::option::FixedBitLength<1U>
+                comms::option::def::FixedBitLength<1U>
             >;
     public:
         /// @brief Provides names and generates access functions for internal bits.

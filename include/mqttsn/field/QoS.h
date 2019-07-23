@@ -36,7 +36,7 @@ struct QoS : public
         mqttsn::field::FieldBase<>,
         QoSVal,
         TExtraOpts...,
-        comms::option::ValidNumValueRange<0, 3>
+        comms::option::def::ValidNumValueRange<0, 3>
     >
 {
     /// @brief Name of the field.

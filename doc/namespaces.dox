@@ -22,3 +22,6 @@
 /// @namespace mqttsn::input
 /// @brief Main namespace for hold input messages bundles.
 
+/// @namespace mqttsn::dispatch
+/// @brief Main namespace for the various message dispatch functions.
+

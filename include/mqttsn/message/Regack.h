@@ -62,20 +62,20 @@ template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Regack : public
     comms::MessageBase<
         TMsgBase,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Regack>,
-        comms::option::FieldsImpl<typename RegackFields<TOpt>::All>,
-        comms::option::MsgType<Regack<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Regack>,
+        comms::option::def::FieldsImpl<typename RegackFields<TOpt>::All>,
+        comms::option::def::MsgType<Regack<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
     using Base =
         comms::MessageBase<
             TMsgBase,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Regack>,
-            comms::option::FieldsImpl<typename RegackFields<TOpt>::All>,
-            comms::option::MsgType<Regack<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Regack>,
+            comms::option::def::FieldsImpl<typename RegackFields<TOpt>::All>,
+            comms::option::def::MsgType<Regack<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

@@ -24,8 +24,8 @@ struct ProtocolId : public
         mqttsn::field::FieldBase<>,
         std::uint8_t,
         TExtraOpts...,
-        comms::option::DefaultNumValue<1>,
-        comms::option::ValidNumValue<1>
+        comms::option::def::DefaultNumValue<1>,
+        comms::option::def::ValidNumValue<1>
     >
 {
     /// @brief Name of the field.

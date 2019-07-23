@@ -47,10 +47,10 @@ class Willtopicupd : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Willtopicupd,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Willtopicupd>,
-        comms::option::FieldsImpl<typename WilltopicupdFields<TOpt>::All>,
-        comms::option::MsgType<Willtopicupd<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willtopicupd>,
+        comms::option::def::FieldsImpl<typename WilltopicupdFields<TOpt>::All>,
+        comms::option::def::MsgType<Willtopicupd<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -58,10 +58,10 @@ class Willtopicupd : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Willtopicupd,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Willtopicupd>,
-            comms::option::FieldsImpl<typename WilltopicupdFields<TOpt>::All>,
-            comms::option::MsgType<Willtopicupd<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willtopicupd>,
+            comms::option::def::FieldsImpl<typename WilltopicupdFields<TOpt>::All>,
+            comms::option::def::MsgType<Willtopicupd<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

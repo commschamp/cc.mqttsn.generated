@@ -47,10 +47,10 @@ class Willmsgresp : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Willmsgresp,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Willmsgresp>,
-        comms::option::FieldsImpl<typename WillmsgrespFields<TOpt>::All>,
-        comms::option::MsgType<Willmsgresp<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willmsgresp>,
+        comms::option::def::FieldsImpl<typename WillmsgrespFields<TOpt>::All>,
+        comms::option::def::MsgType<Willmsgresp<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -58,10 +58,10 @@ class Willmsgresp : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Willmsgresp,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Willmsgresp>,
-            comms::option::FieldsImpl<typename WillmsgrespFields<TOpt>::All>,
-            comms::option::MsgType<Willmsgresp<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willmsgresp>,
+            comms::option::def::FieldsImpl<typename WillmsgrespFields<TOpt>::All>,
+            comms::option::def::MsgType<Willmsgresp<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

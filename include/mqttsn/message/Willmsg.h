@@ -47,10 +47,10 @@ class Willmsg : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Willmsg,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Willmsg>,
-        comms::option::FieldsImpl<typename WillmsgFields<TOpt>::All>,
-        comms::option::MsgType<Willmsg<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willmsg>,
+        comms::option::def::FieldsImpl<typename WillmsgFields<TOpt>::All>,
+        comms::option::def::MsgType<Willmsg<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -58,10 +58,10 @@ class Willmsg : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Willmsg,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Willmsg>,
-            comms::option::FieldsImpl<typename WillmsgFields<TOpt>::All>,
-            comms::option::MsgType<Willmsg<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willmsg>,
+            comms::option::def::FieldsImpl<typename WillmsgFields<TOpt>::All>,
+            comms::option::def::MsgType<Willmsg<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

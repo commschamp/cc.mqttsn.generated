@@ -24,7 +24,7 @@ struct TopicId : public
         mqttsn::field::FieldBase<>,
         std::uint16_t,
         TExtraOpts...,
-        comms::option::ValidNumValueRange<0, 65534L>
+        comms::option::def::ValidNumValueRange<0, 65534L>
     >
 {
     /// @brief Name of the field.

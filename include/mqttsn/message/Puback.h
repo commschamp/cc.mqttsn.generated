@@ -62,20 +62,20 @@ template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Puback : public
     comms::MessageBase<
         TMsgBase,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Puback>,
-        comms::option::FieldsImpl<typename PubackFields<TOpt>::All>,
-        comms::option::MsgType<Puback<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Puback>,
+        comms::option::def::FieldsImpl<typename PubackFields<TOpt>::All>,
+        comms::option::def::MsgType<Puback<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
     using Base =
         comms::MessageBase<
             TMsgBase,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Puback>,
-            comms::option::FieldsImpl<typename PubackFields<TOpt>::All>,
-            comms::option::MsgType<Puback<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Puback>,
+            comms::option::def::FieldsImpl<typename PubackFields<TOpt>::All>,
+            comms::option::def::MsgType<Puback<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

@@ -17,8 +17,8 @@ template <typename... TOpt>
 using Message =
     comms::Message<
         TOpt...,
-        comms::option::BigEndian,
-        comms::option::MsgIdType<mqttsn::MsgId>
+        comms::option::def::BigEndian,
+        comms::option::def::MsgIdType<mqttsn::MsgId>
     >;
 
 } // namespace mqttsn

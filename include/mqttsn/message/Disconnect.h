@@ -40,7 +40,7 @@ struct DisconnectFields
     struct Duration : public
         comms::field::Optional<
             typename DurationMembers::Duration,
-            comms::option::MissingByDefault
+            comms::option::def::MissingByDefault
         >
     {
         /// @brief Name of the field.
@@ -67,20 +67,20 @@ template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Disconnect : public
     comms::MessageBase<
         TMsgBase,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Disconnect>,
-        comms::option::FieldsImpl<typename DisconnectFields<TOpt>::All>,
-        comms::option::MsgType<Disconnect<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Disconnect>,
+        comms::option::def::FieldsImpl<typename DisconnectFields<TOpt>::All>,
+        comms::option::def::MsgType<Disconnect<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
     using Base =
         comms::MessageBase<
             TMsgBase,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Disconnect>,
-            comms::option::FieldsImpl<typename DisconnectFields<TOpt>::All>,
-            comms::option::MsgType<Disconnect<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Disconnect>,
+            comms::option::def::FieldsImpl<typename DisconnectFields<TOpt>::All>,
+            comms::option::def::MsgType<Disconnect<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:
