@@ -47,10 +47,10 @@ class Willtopicresp : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Willtopicresp,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Willtopicresp>,
-        comms::option::FieldsImpl<typename WilltopicrespFields<TOpt>::All>,
-        comms::option::MsgType<Willtopicresp<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willtopicresp>,
+        comms::option::def::FieldsImpl<typename WilltopicrespFields<TOpt>::All>,
+        comms::option::def::MsgType<Willtopicresp<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -58,10 +58,10 @@ class Willtopicresp : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Willtopicresp,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Willtopicresp>,
-            comms::option::FieldsImpl<typename WilltopicrespFields<TOpt>::All>,
-            comms::option::MsgType<Willtopicresp<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willtopicresp>,
+            comms::option::def::FieldsImpl<typename WilltopicrespFields<TOpt>::All>,
+            comms::option::def::MsgType<Willtopicresp<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

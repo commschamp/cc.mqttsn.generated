@@ -36,7 +36,7 @@ struct ReturnCode : public
         mqttsn::field::FieldBase<>,
         ReturnCodeVal,
         TExtraOpts...,
-        comms::option::ValidNumValueRange<0, 3>
+        comms::option::def::ValidNumValueRange<0, 3>
     >
 {
     /// @brief Name of the field.

@@ -36,20 +36,20 @@ template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Pingresp : public
     comms::MessageBase<
         TMsgBase,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Pingresp>,
-        comms::option::FieldsImpl<typename PingrespFields<TOpt>::All>,
-        comms::option::MsgType<Pingresp<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Pingresp>,
+        comms::option::def::FieldsImpl<typename PingrespFields<TOpt>::All>,
+        comms::option::def::MsgType<Pingresp<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
     using Base =
         comms::MessageBase<
             TMsgBase,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Pingresp>,
-            comms::option::FieldsImpl<typename PingrespFields<TOpt>::All>,
-            comms::option::MsgType<Pingresp<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Pingresp>,
+            comms::option::def::FieldsImpl<typename PingrespFields<TOpt>::All>,
+            comms::option::def::MsgType<Pingresp<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

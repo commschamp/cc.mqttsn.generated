@@ -55,7 +55,7 @@ struct UnsubscribeFields
     struct TopicId : public
         comms::field::Optional<
             typename TopicIdMembers::TopicId,
-            comms::option::ExistsByDefault
+            comms::option::def::ExistsByDefault
         >
     {
         /// @brief Name of the field.
@@ -81,7 +81,7 @@ struct UnsubscribeFields
     struct TopicName : public
         comms::field::Optional<
             typename TopicNameMembers::TopicName,
-            comms::option::MissingByDefault
+            comms::option::def::MissingByDefault
         >
     {
         /// @brief Name of the field.
@@ -112,11 +112,11 @@ class Unsubscribe : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Unsubscribe,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Unsubscribe>,
-        comms::option::FieldsImpl<typename UnsubscribeFields<TOpt>::All>,
-        comms::option::MsgType<Unsubscribe<TMsgBase, TOpt> >,
-        comms::option::HasName,
-        comms::option::HasCustomRefresh
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Unsubscribe>,
+        comms::option::def::FieldsImpl<typename UnsubscribeFields<TOpt>::All>,
+        comms::option::def::MsgType<Unsubscribe<TMsgBase, TOpt> >,
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -124,11 +124,11 @@ class Unsubscribe : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Unsubscribe,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Unsubscribe>,
-            comms::option::FieldsImpl<typename UnsubscribeFields<TOpt>::All>,
-            comms::option::MsgType<Unsubscribe<TMsgBase, TOpt> >,
-            comms::option::HasName,
-            comms::option::HasCustomRefresh
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Unsubscribe>,
+            comms::option::def::FieldsImpl<typename UnsubscribeFields<TOpt>::All>,
+            comms::option::def::MsgType<Unsubscribe<TMsgBase, TOpt> >,
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:

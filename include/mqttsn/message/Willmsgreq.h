@@ -37,10 +37,10 @@ class Willmsgreq : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Willmsgreq,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Willmsgreq>,
-        comms::option::FieldsImpl<typename WillmsgreqFields<TOpt>::All>,
-        comms::option::MsgType<Willmsgreq<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willmsgreq>,
+        comms::option::def::FieldsImpl<typename WillmsgreqFields<TOpt>::All>,
+        comms::option::def::MsgType<Willmsgreq<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -48,10 +48,10 @@ class Willmsgreq : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Willmsgreq,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Willmsgreq>,
-            comms::option::FieldsImpl<typename WillmsgreqFields<TOpt>::All>,
-            comms::option::MsgType<Willmsgreq<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willmsgreq>,
+            comms::option::def::FieldsImpl<typename WillmsgreqFields<TOpt>::All>,
+            comms::option::def::MsgType<Willmsgreq<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

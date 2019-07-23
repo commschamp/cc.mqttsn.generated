@@ -24,7 +24,7 @@ struct Duration : public
         mqttsn::field::FieldBase<>,
         std::uint16_t,
         TExtraOpts...,
-        comms::option::UnitsSeconds
+        comms::option::def::UnitsSeconds
     >
 {
     /// @brief Name of the field.

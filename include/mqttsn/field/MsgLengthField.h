@@ -28,7 +28,7 @@ struct MsgLengthFieldMembers
         comms::field::IntValue<
             mqttsn::field::FieldBase<>,
             std::uint8_t,
-            comms::option::NumValueSerOffset<1>
+            comms::option::def::NumValueSerOffset<1>
         >
     {
         /// @brief Name of the field.
@@ -47,7 +47,7 @@ struct MsgLengthFieldMembers
             comms::field::IntValue<
                 mqttsn::field::FieldBase<>,
                 std::uint16_t,
-                comms::option::NumValueSerOffset<3>
+                comms::option::def::NumValueSerOffset<3>
             >
         {
             /// @brief Name of the field.
@@ -91,8 +91,8 @@ class MsgLengthField : public
         mqttsn::field::FieldBase<>,
         typename MsgLengthFieldMembers<TOpt>::All,
         TExtraOpts...,
-        comms::option::HasCustomRead,
-        comms::option::HasCustomRefresh
+        comms::option::def::HasCustomRead,
+        comms::option::def::HasCustomRefresh
     >
 {
     using Base = 
@@ -100,8 +100,8 @@ class MsgLengthField : public
             mqttsn::field::FieldBase<>,
             typename MsgLengthFieldMembers<TOpt>::All,
             TExtraOpts...,
-            comms::option::HasCustomRead,
-            comms::option::HasCustomRefresh
+            comms::option::def::HasCustomRead,
+            comms::option::def::HasCustomRefresh
         >;
 public:
     /// @brief Allow access to internal fields.

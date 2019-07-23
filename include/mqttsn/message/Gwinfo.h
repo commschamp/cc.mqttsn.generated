@@ -54,20 +54,20 @@ template <typename TMsgBase, typename TOpt = mqttsn::options::DefaultOptions>
 class Gwinfo : public
     comms::MessageBase<
         TMsgBase,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Gwinfo>,
-        comms::option::FieldsImpl<typename GwinfoFields<TOpt>::All>,
-        comms::option::MsgType<Gwinfo<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Gwinfo>,
+        comms::option::def::FieldsImpl<typename GwinfoFields<TOpt>::All>,
+        comms::option::def::MsgType<Gwinfo<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
     using Base =
         comms::MessageBase<
             TMsgBase,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Gwinfo>,
-            comms::option::FieldsImpl<typename GwinfoFields<TOpt>::All>,
-            comms::option::MsgType<Gwinfo<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Gwinfo>,
+            comms::option::def::FieldsImpl<typename GwinfoFields<TOpt>::All>,
+            comms::option::def::MsgType<Gwinfo<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:

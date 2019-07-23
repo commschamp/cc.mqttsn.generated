@@ -28,10 +28,10 @@ struct MsgId : public
         mqttsn::field::FieldBase<>,
         mqttsn::MsgId,
         TExtraOpts...,
-        comms::option::ValidNumValueRange<0, 2>,
-        comms::option::ValidNumValueRange<4, 16>,
-        comms::option::ValidNumValueRange<18, 24>,
-        comms::option::ValidNumValueRange<26, 29>
+        comms::option::def::ValidNumValueRange<0, 2>,
+        comms::option::def::ValidNumValueRange<4, 16>,
+        comms::option::def::ValidNumValueRange<18, 24>,
+        comms::option::def::ValidNumValueRange<26, 29>
     >
 {
     /// @brief Name of the field.

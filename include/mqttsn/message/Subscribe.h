@@ -55,7 +55,7 @@ struct SubscribeFields
     struct TopicId : public
         comms::field::Optional<
             typename TopicIdMembers::TopicId,
-            comms::option::ExistsByDefault
+            comms::option::def::ExistsByDefault
         >
     {
         /// @brief Name of the field.
@@ -81,7 +81,7 @@ struct SubscribeFields
     struct TopicName : public
         comms::field::Optional<
             typename TopicNameMembers::TopicName,
-            comms::option::MissingByDefault
+            comms::option::def::MissingByDefault
         >
     {
         /// @brief Name of the field.
@@ -112,11 +112,11 @@ class Subscribe : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Subscribe,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Subscribe>,
-        comms::option::FieldsImpl<typename SubscribeFields<TOpt>::All>,
-        comms::option::MsgType<Subscribe<TMsgBase, TOpt> >,
-        comms::option::HasName,
-        comms::option::HasCustomRefresh
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Subscribe>,
+        comms::option::def::FieldsImpl<typename SubscribeFields<TOpt>::All>,
+        comms::option::def::MsgType<Subscribe<TMsgBase, TOpt> >,
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -124,11 +124,11 @@ class Subscribe : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Subscribe,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Subscribe>,
-            comms::option::FieldsImpl<typename SubscribeFields<TOpt>::All>,
-            comms::option::MsgType<Subscribe<TMsgBase, TOpt> >,
-            comms::option::HasName,
-            comms::option::HasCustomRefresh
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Subscribe>,
+            comms::option::def::FieldsImpl<typename SubscribeFields<TOpt>::All>,
+            comms::option::def::MsgType<Subscribe<TMsgBase, TOpt> >,
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:

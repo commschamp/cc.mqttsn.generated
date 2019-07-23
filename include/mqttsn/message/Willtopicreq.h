@@ -37,10 +37,10 @@ class Willtopicreq : public
     comms::MessageBase<
         TMsgBase,
         typename TOpt::message::Willtopicreq,
-        comms::option::StaticNumIdImpl<mqttsn::MsgId_Willtopicreq>,
-        comms::option::FieldsImpl<typename WilltopicreqFields<TOpt>::All>,
-        comms::option::MsgType<Willtopicreq<TMsgBase, TOpt> >,
-        comms::option::HasName
+        comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willtopicreq>,
+        comms::option::def::FieldsImpl<typename WilltopicreqFields<TOpt>::All>,
+        comms::option::def::MsgType<Willtopicreq<TMsgBase, TOpt> >,
+        comms::option::def::HasName
     >
 {
     // Redefinition of the base class type
@@ -48,10 +48,10 @@ class Willtopicreq : public
         comms::MessageBase<
             TMsgBase,
             typename TOpt::message::Willtopicreq,
-            comms::option::StaticNumIdImpl<mqttsn::MsgId_Willtopicreq>,
-            comms::option::FieldsImpl<typename WilltopicreqFields<TOpt>::All>,
-            comms::option::MsgType<Willtopicreq<TMsgBase, TOpt> >,
-            comms::option::HasName
+            comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willtopicreq>,
+            comms::option::def::FieldsImpl<typename WilltopicreqFields<TOpt>::All>,
+            comms::option::def::MsgType<Willtopicreq<TMsgBase, TOpt> >,
+            comms::option::def::HasName
         >;
 
 public:
