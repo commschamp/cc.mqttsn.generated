@@ -55,7 +55,8 @@ struct FlagsMembers
     {
         static_cast<void>(serHidden);
         using Field = mqttsn::field::FlagsMembers<>::QoS;
-        return cc_plugin::field::createProps_qoS(Field::name(), true);
+        auto props = cc_plugin::field::createProps_qoS(Field::name(), true);
+        return props;
         
     }
     

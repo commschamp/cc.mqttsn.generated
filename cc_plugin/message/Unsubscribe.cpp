@@ -25,14 +25,16 @@ namespace
 static QVariantMap createProps_flags()
 {
     using Field = mqttsn::message::UnsubscribeFields<>::Flags;
-    return cc_plugin::field::createProps_flags(Field::name());
+    auto props = cc_plugin::field::createProps_flags(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_msgId()
 {
     using Field = mqttsn::message::UnsubscribeFields<>::MsgId;
-    return cc_plugin::field::createProps_messageId(Field::name());
+    auto props = cc_plugin::field::createProps_messageId(Field::name());
+    return props;
     
 }
 
@@ -41,7 +43,8 @@ struct TopicIdMembers
     static QVariantMap createProps_topicId()
     {
         using Field = mqttsn::message::UnsubscribeFields<>::TopicIdMembers::TopicId;
-        return cc_plugin::field::createProps_topicId(Field::name());
+        auto props = cc_plugin::field::createProps_topicId(Field::name());
+        return props;
         
     }
     
@@ -64,7 +67,8 @@ struct TopicNameMembers
     static QVariantMap createProps_topicName()
     {
         using Field = mqttsn::message::UnsubscribeFields<>::TopicNameMembers::TopicName;
-        return cc_plugin::field::createProps_topicName(Field::name());
+        auto props = cc_plugin::field::createProps_topicName(Field::name());
+        return props;
         
     }
     

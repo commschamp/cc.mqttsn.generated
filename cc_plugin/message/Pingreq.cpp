@@ -22,7 +22,8 @@ namespace
 static QVariantMap createProps_clientId()
 {
     using Field = mqttsn::message::PingreqFields<>::ClientId;
-    return cc_plugin::field::createProps_clientId(Field::name());
+    auto props = cc_plugin::field::createProps_clientId(Field::name());
+    return props;
     
 }
 

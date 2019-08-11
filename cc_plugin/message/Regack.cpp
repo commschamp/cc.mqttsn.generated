@@ -24,21 +24,24 @@ namespace
 static QVariantMap createProps_topicId()
 {
     using Field = mqttsn::message::RegackFields<>::TopicId;
-    return cc_plugin::field::createProps_topicId(Field::name());
+    auto props = cc_plugin::field::createProps_topicId(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_msgId()
 {
     using Field = mqttsn::message::RegackFields<>::MsgId;
-    return cc_plugin::field::createProps_messageId(Field::name());
+    auto props = cc_plugin::field::createProps_messageId(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_returnCode()
 {
     using Field = mqttsn::message::RegackFields<>::ReturnCode;
-    return cc_plugin::field::createProps_returnCode(Field::name());
+    auto props = cc_plugin::field::createProps_returnCode(Field::name());
+    return props;
     
 }
 

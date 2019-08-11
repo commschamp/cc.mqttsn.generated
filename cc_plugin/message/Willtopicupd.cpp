@@ -22,7 +22,8 @@ namespace
 static QVariantMap createProps_willTopic()
 {
     using Field = mqttsn::message::WilltopicupdFields<>::WillTopic;
-    return cc_plugin::field::createProps_willTopic(Field::name());
+    auto props = cc_plugin::field::createProps_willTopic(Field::name());
+    return props;
     
 }
 

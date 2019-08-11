@@ -24,7 +24,8 @@ struct DurationMembers
     static QVariantMap createProps_duration()
     {
         using Field = mqttsn::message::DisconnectFields<>::DurationMembers::Duration;
-        return cc_plugin::field::createProps_duration(Field::name());
+        auto props = cc_plugin::field::createProps_duration(Field::name());
+        return props;
         
     }
     

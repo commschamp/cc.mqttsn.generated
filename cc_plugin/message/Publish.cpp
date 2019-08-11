@@ -25,28 +25,32 @@ namespace
 static QVariantMap createProps_flags()
 {
     using Field = mqttsn::message::PublishFields<>::Flags;
-    return cc_plugin::field::createProps_flags(Field::name());
+    auto props = cc_plugin::field::createProps_flags(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_topicId()
 {
     using Field = mqttsn::message::PublishFields<>::TopicId;
-    return cc_plugin::field::createProps_topicId(Field::name());
+    auto props = cc_plugin::field::createProps_topicId(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_msgId()
 {
     using Field = mqttsn::message::PublishFields<>::MsgId;
-    return cc_plugin::field::createProps_messageId(Field::name());
+    auto props = cc_plugin::field::createProps_messageId(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_data()
 {
     using Field = mqttsn::message::PublishFields<>::Data;
-    return cc_plugin::field::createProps_data(Field::name());
+    auto props = cc_plugin::field::createProps_data(Field::name());
+    return props;
     
 }
 
