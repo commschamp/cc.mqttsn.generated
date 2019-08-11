@@ -23,14 +23,16 @@ namespace
 static QVariantMap createProps_gwId()
 {
     using Field = mqttsn::message::AdvertiseFields<>::GwId;
-    return cc_plugin::field::createProps_gwId(Field::name());
+    auto props = cc_plugin::field::createProps_gwId(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_duration()
 {
     using Field = mqttsn::message::AdvertiseFields<>::Duration;
-    return cc_plugin::field::createProps_duration(Field::name());
+    auto props = cc_plugin::field::createProps_duration(Field::name());
+    return props;
     
 }
 

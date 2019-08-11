@@ -23,14 +23,16 @@ namespace
 static QVariantMap createProps_flags()
 {
     using Field = mqttsn::message::WilltopicFields<>::Flags;
-    return cc_plugin::field::createProps_flags(Field::name());
+    auto props = cc_plugin::field::createProps_flags(Field::name());
+    return props;
     
 }
 
 static QVariantMap createProps_willTopic()
 {
     using Field = mqttsn::message::WilltopicFields<>::WillTopic;
-    return cc_plugin::field::createProps_willTopic(Field::name());
+    auto props = cc_plugin::field::createProps_willTopic(Field::name());
+    return props;
     
 }
 

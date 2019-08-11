@@ -14,13 +14,15 @@ namespace plugin
 {
 
 MqttsnPlugin::MqttsnPlugin()
+  : m_protocol(new MqttsnProtocol())
 {
     pluginProperties()
         .setProtocolCreateFunc(
-            []() -> cc::ProtocolPtr
+            [this]() -> cc::ProtocolPtr
             {
-                return cc::ProtocolPtr(new MqttsnProtocol());
-            });
+                return m_protocol;
+            })
+            ;
 }
 
 MqttsnPlugin::~MqttsnPlugin() = default;

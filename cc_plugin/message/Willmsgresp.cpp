@@ -22,7 +22,8 @@ namespace
 static QVariantMap createProps_returnCode()
 {
     using Field = mqttsn::message::WillmsgrespFields<>::ReturnCode;
-    return cc_plugin::field::createProps_returnCode(Field::name());
+    auto props = cc_plugin::field::createProps_returnCode(Field::name());
+    return props;
     
 }
 

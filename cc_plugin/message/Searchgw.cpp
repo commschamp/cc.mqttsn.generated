@@ -22,7 +22,8 @@ namespace
 static QVariantMap createProps_radius()
 {
     using Field = mqttsn::message::SearchgwFields<>::Radius;
-    return cc_plugin::field::createProps_radius(Field::name());
+    auto props = cc_plugin::field::createProps_radius(Field::name());
+    return props;
     
 }
 
