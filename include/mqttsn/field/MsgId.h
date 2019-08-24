@@ -19,27 +19,10 @@ namespace mqttsn
 namespace field
 {
 
-/// @brief Definition of <b>"MsgId"</b> field.
-/// @tparam TOpt Protocol options.
-/// @tparam TExtraOpts Extra options.
-template <typename TOpt = mqttsn::options::DefaultOptions, typename... TExtraOpts>
-struct MsgId : public
-    comms::field::EnumValue<
-        mqttsn::field::FieldBase<>,
-        mqttsn::MsgId,
-        TExtraOpts...,
-        comms::option::def::ValidNumValueRange<0, 2>,
-        comms::option::def::ValidNumValueRange<4, 16>,
-        comms::option::def::ValidNumValueRange<18, 24>,
-        comms::option::def::ValidNumValueRange<26, 29>
-    >
+/// @brief Common functions for
+///     @ref mqttsn::field::MsgId field.
+struct MsgIdCommon
 {
-    /// @brief Name of the field.
-    static const char* name()
-    {
-        return "MsgId";
-    }
-    
     /// @brief Retrieve name of the enum value
     static const char* valueName(mqttsn::MsgId val)
     {
@@ -86,6 +69,35 @@ struct MsgId : public
         }
         
         return iter->second;
+    }
+    
+};
+
+/// @brief Definition of <b>"MsgId"</b> field.
+/// @tparam TOpt Protocol options.
+/// @tparam TExtraOpts Extra options.
+template <typename TOpt = mqttsn::options::DefaultOptions, typename... TExtraOpts>
+struct MsgId : public
+    comms::field::EnumValue<
+        mqttsn::field::FieldBase<>,
+        mqttsn::MsgId,
+        TExtraOpts...,
+        comms::option::def::ValidNumValueRange<0, 2>,
+        comms::option::def::ValidNumValueRange<4, 16>,
+        comms::option::def::ValidNumValueRange<18, 24>,
+        comms::option::def::ValidNumValueRange<26, 29>
+    >
+{
+    /// @brief Name of the field.
+    static const char* name()
+    {
+        return "MsgId";
+    }
+    
+    /// @brief Retrieve name of the enum value
+    static const char* valueName(mqttsn::MsgId val)
+    {
+        return mqttsn::field::MsgIdCommon::valueName(val);
     }
     
 };

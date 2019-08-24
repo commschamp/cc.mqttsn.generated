@@ -18,7 +18,7 @@ namespace mqttsn
 namespace field
 {
 
-/// @brief Scope for all the member fields of @ref MsgLengthField bitfield.
+/// @brief Scope for all the member fields of @ref MsgLengthField bundle.
 /// @tparam TOpt Protocol options.
 template <typename TOpt = mqttsn::options::DefaultOptions>
 struct MsgLengthFieldMembers

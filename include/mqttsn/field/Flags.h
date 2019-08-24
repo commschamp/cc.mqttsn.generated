@@ -20,19 +20,102 @@ namespace mqttsn
 namespace field
 {
 
-/// @brief Scope for all the member fields of @ref Flags bitfield.
-/// @tparam TOpt Protocol options.
-template <typename TOpt = mqttsn::options::DefaultOptions>
-struct FlagsMembers
+/// @brief Scope for all the common definitions of the member fields of
+///     @ref mqttsn::field::Flags bitfield.
+struct FlagsMembersCommon
 {
-    /// @brief Values enumerator for @ref mqttsn::field::FlagsMembers::TopicIdType field.
+    /// @brief Values enumerator for
+    ///     @ref mqttsn::field::FlagsMembers::TopicIdType field.
     enum class TopicIdTypeVal : std::uint8_t
     {
         NormalTopicId = 0, ///< value @b NormalTopicId
         PredefinedTopicId = 1, ///< value @b PredefinedTopicId
         TopicName = 2, ///< value @b TopicName
         
+        // --- Extra values generated for convenience ---
+        FirstValue = 0, ///< First defined value.
+        LastValue = 2, ///< Last defined value.
+        ValuesLimit = 3, ///< Upper limit for defined values.
+        
     };
+    
+    /// @brief Common functions for
+    ///     @ref mqttsn::field::FlagsMembers::TopicIdType field.
+    struct TopicIdTypeCommon
+    {
+        /// @brief Retrieve name of the enum value
+        static const char* valueName(TopicIdTypeVal val)
+        {
+            static const char* Map[] = {
+                "NormalTopicId",
+                "PredefinedTopicId",
+                "TopicName"
+            };
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            
+            if (MapSize <= static_cast<std::size_t>(val)) {
+                return nullptr;
+            }
+            
+            return Map[static_cast<std::size_t>(val)];
+        }
+        
+    };
+    
+    /// @brief Common functions for
+    ///     @ref mqttsn::field::FlagsMembers::Mid field.
+    struct MidCommon
+    {
+        /// @brief Retrieve name of the bit
+        static const char* bitName(std::size_t idx)
+        {
+            static const char* Map[] = {
+                "CleanSession",
+                "Will",
+                "Retain"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            if (MapSize <= idx) {
+                return nullptr;
+            }
+        
+            return Map[idx];
+        }
+        
+    };
+    
+    /// @brief Common functions for
+    ///     @ref mqttsn::field::FlagsMembers::High field.
+    struct HighCommon
+    {
+        /// @brief Retrieve name of the bit
+        static const char* bitName(std::size_t idx)
+        {
+            static const char* Map[] = {
+                "Dup"
+            };
+        
+            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
+            if (MapSize <= idx) {
+                return nullptr;
+            }
+        
+            return Map[idx];
+        }
+        
+    };
+    
+};
+
+/// @brief Scope for all the member fields of @ref Flags bitfield.
+/// @tparam TOpt Protocol options.
+template <typename TOpt = mqttsn::options::DefaultOptions>
+struct FlagsMembers
+{
+    /// @brief Values enumerator for
+    ///     @ref mqttsn::field::FlagsMembers::TopicIdType field.
+    using TopicIdTypeVal = mqttsn::field::FlagsMembersCommon::TopicIdTypeVal;
     
     /// @brief Definition of <b>"TopicIdType"</b> field.
     /// @see @ref mqttsn::field::FlagsMembers::TopicIdTypeVal
@@ -53,18 +136,7 @@ struct FlagsMembers
         /// @brief Retrieve name of the enum value
         static const char* valueName(TopicIdTypeVal val)
         {
-            static const char* Map[] = {
-                "NormalTopicId",
-                "PredefinedTopicId",
-                "TopicName"
-            };
-            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-            
-            if (MapSize <= static_cast<std::size_t>(val)) {
-                return nullptr;
-            }
-            
-            return Map[static_cast<std::size_t>(val)];
+            return mqttsn::field::FlagsMembersCommon::TopicIdTypeCommon::valueName(val);
         }
         
     };
@@ -106,20 +178,9 @@ struct FlagsMembers
         /// @brief Retrieve name of the bit
         static const char* bitName(BitIdx idx)
         {
-            static const char* Map[] = {
-                "CleanSession",
-                "Will",
-                "Retain"
-            };
-        
-            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
-        
-            if (MapSize <= static_cast<std::size_t>(idx)) {
-                return nullptr;
-            }
-        
-            return Map[static_cast<std::size_t>(idx)];
+            return
+                mqttsn::field::FlagsMembersCommon::MidCommon::bitName(
+                    static_cast<std::size_t>(idx));
         }
         
     };
@@ -164,18 +225,9 @@ struct FlagsMembers
         /// @brief Retrieve name of the bit
         static const char* bitName(BitIdx idx)
         {
-            static const char* Map[] = {
-                "Dup"
-            };
-        
-            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-            static_assert(MapSize == BitIdx_numOfValues, "Invalid map");
-        
-            if (MapSize <= static_cast<std::size_t>(idx)) {
-                return nullptr;
-            }
-        
-            return Map[static_cast<std::size_t>(idx)];
+            return
+                mqttsn::field::FlagsMembersCommon::HighCommon::bitName(
+                    static_cast<std::size_t>(idx));
         }
         
     };
