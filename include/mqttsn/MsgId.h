@@ -40,6 +40,11 @@ enum MsgId : std::uint8_t
     MsgId_Willmsgupd = 0x1CU, ///< message id of <b>WILLMSGUPD</b> message.
     MsgId_Willmsgresp = 0x1DU, ///< message id of <b>WILLMSGRESP</b> message.
     
+    // --- Extra values generated for convenience ---
+    MsgId_FirstValue = 0x00U, ///< First defined value.
+    MsgId_LastValue = 0x1DU, ///< Last defined value.
+    MsgId_ValuesLimit = 0x1EU, ///< Upper limit for defined values.
+    
 };
 
 } // namespace mqttsn
