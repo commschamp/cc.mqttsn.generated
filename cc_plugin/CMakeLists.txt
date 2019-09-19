@@ -5,9 +5,9 @@ set (ALL_MESSAGES_LIB "all_messages")
 function (cc_plugin_all_messages)
     set (name "${ALL_MESSAGES_LIB}")
     set (src
-        field/Duration.cpp
         field/ClientId.cpp
         field/Data.cpp
+        field/Duration.cpp
         field/Flags.cpp
         field/GwAdd.cpp
         field/GwId.cpp
@@ -15,10 +15,10 @@ function (cc_plugin_all_messages)
         field/MsgId.cpp
         field/MsgLengthField.cpp
         field/ProtocolId.cpp
-        field/Radius.cpp
         field/QoS.cpp
-        field/TopicId.cpp
+        field/Radius.cpp
         field/ReturnCode.cpp
+        field/TopicId.cpp
         field/TopicName.cpp
         field/WillMsg.cpp
         field/WillTopic.cpp
