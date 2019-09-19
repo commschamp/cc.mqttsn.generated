@@ -23,6 +23,7 @@ QVariantMap createProps_radius(const char* name, bool serHidden)
         cc::property::field::ForField<Field>()
             .name(name)
             .serialisedHidden(serHidden)
+            .addSpecial("BroadcastToAll", 0)
             .asMap();
     
 }
