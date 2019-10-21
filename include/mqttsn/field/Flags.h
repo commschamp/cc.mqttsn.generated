@@ -265,7 +265,7 @@ public:
     ///     related to @b comms::field::Bitfield class from COMMS library
     ///     for details.
     ///
-    ///      The generated access functions are:
+    ///     The generated access functions are:
     ///     @li @b field_topicIdType() - for FlagsMembers::TopicIdType member field.
     ///     @li @b field_mid() - for FlagsMembers::Mid member field.
     ///     @li @b field_qoS() - for FlagsMembers::QoS member field.
