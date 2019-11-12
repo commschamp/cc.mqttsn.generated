@@ -48,116 +48,97 @@ auto dispatchClientInputMessage(
     case mqttsn::MsgId_Advertise:
     {
         using MsgType = mqttsn::message::Advertise<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Gwinfo:
     {
         using MsgType = mqttsn::message::Gwinfo<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Connack:
     {
         using MsgType = mqttsn::message::Connack<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Willtopicreq:
     {
         using MsgType = mqttsn::message::Willtopicreq<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Willmsgreq:
     {
         using MsgType = mqttsn::message::Willmsgreq<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Register:
     {
         using MsgType = mqttsn::message::Register<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Regack:
     {
         using MsgType = mqttsn::message::Regack<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Publish:
     {
         using MsgType = mqttsn::message::Publish<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Puback:
     {
         using MsgType = mqttsn::message::Puback<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Pubcomp:
     {
         using MsgType = mqttsn::message::Pubcomp<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Pubrec:
     {
         using MsgType = mqttsn::message::Pubrec<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Pubrel:
     {
         using MsgType = mqttsn::message::Pubrel<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Suback:
     {
         using MsgType = mqttsn::message::Suback<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Unsuback:
     {
         using MsgType = mqttsn::message::Unsuback<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Pingreq:
     {
         using MsgType = mqttsn::message::Pingreq<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Pingresp:
     {
         using MsgType = mqttsn::message::Pingresp<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Disconnect:
     {
         using MsgType = mqttsn::message::Disconnect<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Willtopicresp:
     {
         using MsgType = mqttsn::message::Willtopicresp<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Willmsgresp:
     {
         using MsgType = mqttsn::message::Willmsgresp<InterfaceType, TProtOptions>;
-        auto& castedMsg = static_cast<MsgType&>(msg);
-        return handler.handle(castedMsg);
+        return handler.handle(static_cast<MsgType&>(msg));
     }
     default:
         break;
