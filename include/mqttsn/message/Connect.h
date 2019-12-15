@@ -89,17 +89,21 @@ class Connect : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_flags() for @ref ConnectFields::Flags field.
-    ///     @li @b field_protocolId() for @ref ConnectFields::ProtocolId field.
-    ///     @li @b field_duration() for @ref ConnectFields::Duration field.
-    ///     @li @b field_clientId() for @ref ConnectFields::ClientId field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_flags type and @b field_flags() fuction
+    ///         for @ref ConnectFields::Flags field.
+    ///     @li @b Field_protocolId type and @b field_protocolId() fuction
+    ///         for @ref ConnectFields::ProtocolId field.
+    ///     @li @b Field_duration type and @b field_duration() fuction
+    ///         for @ref ConnectFields::Duration field.
+    ///     @li @b Field_clientId type and @b field_clientId() fuction
+    ///         for @ref ConnectFields::ClientId field.
+    COMMS_MSG_FIELDS_NAMES(
         flags,
         protocolId,
         duration,

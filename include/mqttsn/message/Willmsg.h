@@ -65,14 +65,15 @@ class Willmsg : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_willMsg() for @ref WillmsgFields::WillMsg field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_willMsg type and @b field_willMsg() fuction
+    ///         for @ref WillmsgFields::WillMsg field.
+    COMMS_MSG_FIELDS_NAMES(
         willMsg
     );
     

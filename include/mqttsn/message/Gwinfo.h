@@ -71,15 +71,17 @@ class Gwinfo : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_gwId() for @ref GwinfoFields::GwId field.
-    ///     @li @b field_gwAdd() for @ref GwinfoFields::GwAdd field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_gwId type and @b field_gwId() fuction
+    ///         for @ref GwinfoFields::GwId field.
+    ///     @li @b Field_gwAdd type and @b field_gwAdd() fuction
+    ///         for @ref GwinfoFields::GwAdd field.
+    COMMS_MSG_FIELDS_NAMES(
         gwId,
         gwAdd
     );

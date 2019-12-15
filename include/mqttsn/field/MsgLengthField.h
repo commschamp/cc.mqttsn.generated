@@ -105,14 +105,16 @@ class MsgLengthField : public
         >;
 public:
     /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+    /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
     ///     related to @b comms::field::Bundle class from COMMS library
     ///     for details.
     ///
     ///     The generated access functions are:
-    ///     @li @b field_short() - for MsgLengthFieldMembers::Short member field.
-    ///     @li @b field_long() - for MsgLengthFieldMembers::Long member field.
-    COMMS_FIELD_MEMBERS_ACCESS(
+    ///     @li @b Field_short @b field_short() -
+    ///         for MsgLengthFieldMembers::Short member field.
+    ///     @li @b Field_long @b field_long() -
+    ///         for MsgLengthFieldMembers::Long member field.
+    COMMS_FIELD_MEMBERS_NAMES(
         short,
         long
     );
