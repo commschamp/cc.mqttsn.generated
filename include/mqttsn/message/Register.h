@@ -79,16 +79,19 @@ class Register : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_topicId() for @ref RegisterFields::TopicId field.
-    ///     @li @b field_msgId() for @ref RegisterFields::MsgId field.
-    ///     @li @b field_topicName() for @ref RegisterFields::TopicName field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_topicId type and @b field_topicId() fuction
+    ///         for @ref RegisterFields::TopicId field.
+    ///     @li @b Field_msgId type and @b field_msgId() fuction
+    ///         for @ref RegisterFields::MsgId field.
+    ///     @li @b Field_topicName type and @b field_topicName() fuction
+    ///         for @ref RegisterFields::TopicName field.
+    COMMS_MSG_FIELDS_NAMES(
         topicId,
         msgId,
         topicName

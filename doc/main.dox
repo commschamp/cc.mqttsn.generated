@@ -68,6 +68,21 @@
 /// @li @ref mqttsn::dispatch::dispatchClientInputMessageDefaultOptions
 /// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
 ///
+/// There are also some dispatcher objects to be used with
+/// @b comms::processAllWithDispatchViaDispatcher() function or similar.
+/// @li @ref mqttsn::dispatch::MsgDispatcher
+/// (defined in @b mqttsn/dispatch/DispatchMessage.h header file).
+/// @li @ref mqttsn::dispatch::MsgDispatcherDefaultOptions
+/// (defined in @b mqttsn/dispatch/DispatchMessage.h header file).
+/// @li @ref mqttsn::dispatch::ServerInputMsgDispatcher
+/// (defined in @b mqttsn/dispatch/DispatchServerInputMessage.h header file).
+/// @li @ref mqttsn::dispatch::ServerInputMsgDispatcherDefaultOptions
+/// (defined in @b mqttsn/dispatch/DispatchServerInputMessage.h header file).
+/// @li @ref mqttsn::dispatch::ClientInputMsgDispatcher
+/// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
+/// @li @ref mqttsn::dispatch::ClientInputMsgDispatcherDefaultOptions
+/// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
+///
 /// @section main_customization Customization
 /// Depending on the value of @b customization option passed to the @b commsdsl2comms
 /// code generator, the latter generates @ref mqttsn::options::DefaultOptions

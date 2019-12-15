@@ -79,16 +79,19 @@ class Regack : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_topicId() for @ref RegackFields::TopicId field.
-    ///     @li @b field_msgId() for @ref RegackFields::MsgId field.
-    ///     @li @b field_returnCode() for @ref RegackFields::ReturnCode field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_topicId type and @b field_topicId() fuction
+    ///         for @ref RegackFields::TopicId field.
+    ///     @li @b Field_msgId type and @b field_msgId() fuction
+    ///         for @ref RegackFields::MsgId field.
+    ///     @li @b Field_returnCode type and @b field_returnCode() fuction
+    ///         for @ref RegackFields::ReturnCode field.
+    COMMS_MSG_FIELDS_NAMES(
         topicId,
         msgId,
         returnCode

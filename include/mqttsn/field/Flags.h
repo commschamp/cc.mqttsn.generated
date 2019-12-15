@@ -261,16 +261,20 @@ class Flags : public
         >;
 public:
     /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_FIELD_MEMBERS_ACCESS macro
+    /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
     ///     related to @b comms::field::Bitfield class from COMMS library
     ///     for details.
     ///
     ///     The generated access functions are:
-    ///     @li @b field_topicIdType() - for FlagsMembers::TopicIdType member field.
-    ///     @li @b field_mid() - for FlagsMembers::Mid member field.
-    ///     @li @b field_qoS() - for FlagsMembers::QoS member field.
-    ///     @li @b field_high() - for FlagsMembers::High member field.
-    COMMS_FIELD_MEMBERS_ACCESS(
+    ///     @li @b Field_topicIdType @b field_topicIdType() -
+    ///         for FlagsMembers::TopicIdType member field.
+    ///     @li @b Field_mid @b field_mid() -
+    ///         for FlagsMembers::Mid member field.
+    ///     @li @b Field_qoS @b field_qoS() -
+    ///         for FlagsMembers::QoS member field.
+    ///     @li @b Field_high @b field_high() -
+    ///         for FlagsMembers::High member field.
+    COMMS_FIELD_MEMBERS_NAMES(
         topicIdType,
         mid,
         qoS,

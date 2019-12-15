@@ -132,17 +132,21 @@ class Subscribe : public
         >;
 
 public:
-    /// @brief Allow access to internal fields.
-    /// @details See definition of @b COMMS_MSG_FIELDS_ACCESS macro
+    /// @brief Provide names and allow access to internal fields.
+    /// @details See definition of @b COMMS_MSG_FIELDS_NAMES macro
     ///     related to @b comms::MessageBase class from COMMS library
     ///     for details.
     ///
-    ///     The generated functions are:
-    ///     @li @b field_flags() for @ref SubscribeFields::Flags field.
-    ///     @li @b field_msgId() for @ref SubscribeFields::MsgId field.
-    ///     @li @b field_topicId() for @ref SubscribeFields::TopicId field.
-    ///     @li @b field_topicName() for @ref SubscribeFields::TopicName field.
-    COMMS_MSG_FIELDS_ACCESS(
+    ///     The generated types and functions are:
+    ///     @li @b Field_flags type and @b field_flags() fuction
+    ///         for @ref SubscribeFields::Flags field.
+    ///     @li @b Field_msgId type and @b field_msgId() fuction
+    ///         for @ref SubscribeFields::MsgId field.
+    ///     @li @b Field_topicId type and @b field_topicId() fuction
+    ///         for @ref SubscribeFields::TopicId field.
+    ///     @li @b Field_topicName type and @b field_topicName() fuction
+    ///         for @ref SubscribeFields::TopicName field.
+    COMMS_MSG_FIELDS_NAMES(
         flags,
         msgId,
         topicId,
