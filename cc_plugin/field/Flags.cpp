@@ -31,9 +31,9 @@ struct FlagsMembers
             cc::property::field::ForField<Field>()
                 .name(Field::name())
                 .serialisedHidden()
-                .add("NormalTopicId", 0)
+                .add("Normal", 0)
                 .add("PredefinedTopicId", 1)
-                .add("TopicName", 2)
+                .add("ShortTopicName", 2)
                 .asMap();
         
     }
