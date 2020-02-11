@@ -190,7 +190,7 @@ public:
         
         auto expectedTopicIdMode = comms::field::OptionalMode::Exists;
         auto expectedTopicNameMode = comms::field::OptionalMode::Missing;
-        if (topicIdTypeField.value() == TopicIdVal::TopicName) {
+        if (topicIdTypeField.value() == TopicIdVal::Normal) {
             expectedTopicIdMode = comms::field::OptionalMode::Missing;
             expectedTopicNameMode = comms::field::OptionalMode::Exists;
         }

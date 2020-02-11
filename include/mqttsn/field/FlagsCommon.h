@@ -28,9 +28,9 @@ struct FlagsMembersCommon
         ///     @ref mqttsn::field::FlagsMembers::TopicIdType field.
         enum class ValueType : std::uint8_t
         {
-            NormalTopicId = 0, ///< value @b NormalTopicId
+            Normal = 0, ///< value @b Normal
             PredefinedTopicId = 1, ///< value @b PredefinedTopicId
-            TopicName = 2, ///< value @b TopicName
+            ShortTopicName = 2, ///< value @b ShortTopicName
             
             // --- Extra values generated for convenience ---
             FirstValue = 0, ///< First defined value.
@@ -49,9 +49,9 @@ struct FlagsMembersCommon
         static const char* valueName(ValueType val)
         {
             static const char* Map[] = {
-                "NormalTopicId",
+                "Normal",
                 "PredefinedTopicId",
-                "TopicName"
+                "ShortTopicName"
             };
             static const std::size_t MapSize = std::extent<decltype(Map)>::value;
             
