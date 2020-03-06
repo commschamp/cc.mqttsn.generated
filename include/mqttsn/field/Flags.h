@@ -14,7 +14,7 @@
 #include "comms/options.h"
 #include "mqttsn/field/FieldBase.h"
 #include "mqttsn/field/FlagsCommon.h"
-#include "mqttsn/field/QoS.h"
+#include "mqttsn/field/Qos.h"
 #include "mqttsn/options/DefaultOptions.h"
 
 namespace mqttsn
@@ -113,9 +113,9 @@ struct FlagsMembers
         
     };
     
-    /// @brief Definition of <b>"QoS"</b> field.
-    using QoS =
-        mqttsn::field::QoS<
+    /// @brief Definition of <b>"Qos"</b> field.
+    using Qos =
+        mqttsn::field::Qos<
             TOpt,
             comms::option::def::FixedBitLength<2U>
         >;
@@ -165,7 +165,7 @@ struct FlagsMembers
         std::tuple<
            TopicIdType,
            Mid,
-           QoS,
+           Qos,
            High
         >;
 };
@@ -198,14 +198,14 @@ public:
     ///         for FlagsMembers::TopicIdType member field.
     ///     @li @b Field_mid @b field_mid() -
     ///         for FlagsMembers::Mid member field.
-    ///     @li @b Field_qoS @b field_qoS() -
-    ///         for FlagsMembers::QoS member field.
+    ///     @li @b Field_qos @b field_qos() -
+    ///         for FlagsMembers::Qos member field.
     ///     @li @b Field_high @b field_high() -
     ///         for FlagsMembers::High member field.
     COMMS_FIELD_MEMBERS_NAMES(
         topicIdType,
         mid,
-        qoS,
+        qos,
         high
     );
     

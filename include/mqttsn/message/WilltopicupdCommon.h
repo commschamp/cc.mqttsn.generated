@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "mqttsn/field/FlagsCommon.h"
 #include "mqttsn/field/WillTopicCommon.h"
 
 namespace mqttsn
@@ -19,6 +20,14 @@ namespace message
 /// @see mqttsn::message::WilltopicupdFields
 struct WilltopicupdFieldsCommon
 {
+    /// @brief Common types and functions for members of
+    ///     @ref mqttsn::message::WilltopicupdFields::Flags field.
+    using FlagsMembersCommon = mqttsn::field::FlagsMembersCommon;
+    
+    /// @brief Common types and functions for
+    ///     @ref mqttsn::message::WilltopicupdFields::Flags field.
+    using FlagsCommon = mqttsn::field::FlagsCommon;
+    
     /// @brief Common types and functions for
     ///     @ref mqttsn::message::WilltopicupdFields::WillTopic field.
     using WillTopicCommon = mqttsn::field::WillTopicCommon;

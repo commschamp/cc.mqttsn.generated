@@ -2,7 +2,7 @@
 
 /// @file
 /// @brief Contains common template parameters independent functionality of
-///    @ref mqttsn::field::QoS field.
+///    @ref mqttsn::field::Qos field.
 
 #pragma once
 
@@ -16,11 +16,11 @@ namespace field
 {
 
 /// @brief Common types and functions for
-///     @ref mqttsn::field::QoS field.
-struct QoSCommon
+///     @ref mqttsn::field::Qos field.
+struct QosCommon
 {
     /// @brief Values enumerator for
-    ///     @ref mqttsn::field::QoS field.
+    ///     @ref mqttsn::field::Qos field.
     enum class ValueType : std::uint8_t
     {
         AtMostOnceDelivery = 0, ///< value @b AtMostOnceDelivery
@@ -35,10 +35,10 @@ struct QoSCommon
         
     };
     
-    /// @brief Name of the @ref mqttsn::field::QoS field.
+    /// @brief Name of the @ref mqttsn::field::Qos field.
     static const char* name()
     {
-        return "QoS";
+        return "Qos";
     }
     
     /// @brief Retrieve name of the enum value
@@ -62,8 +62,8 @@ struct QoSCommon
 };
 
 /// @brief Values enumerator for
-///     @ref mqttsn::field::QoS field.
-using QoSVal = QoSCommon::ValueType;
+///     @ref mqttsn::field::Qos field.
+using QosVal = QosCommon::ValueType;
 
 } // namespace field
 

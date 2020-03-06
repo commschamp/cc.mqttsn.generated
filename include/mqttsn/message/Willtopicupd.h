@@ -10,6 +10,7 @@
 #include "comms/options.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/FieldBase.h"
+#include "mqttsn/field/Flags.h"
 #include "mqttsn/field/WillTopic.h"
 #include "mqttsn/message/WilltopicupdCommon.h"
 #include "mqttsn/options/DefaultOptions.h"
@@ -27,6 +28,12 @@ namespace message
 template <typename TOpt = mqttsn::options::DefaultOptions>
 struct WilltopicupdFields
 {
+    /// @brief Definition of <b>"Flags"</b> field.
+    using Flags =
+        mqttsn::field::Flags<
+            TOpt
+        >;
+    
     /// @brief Definition of <b>"WillTopic"</b> field.
     using WillTopic =
         mqttsn::field::WillTopic<
@@ -35,6 +42,7 @@ struct WilltopicupdFields
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
+        Flags,
         WillTopic
     >;
 };
@@ -74,15 +82,18 @@ public:
     ///     for details.
     ///
     ///     The generated types and functions are:
+    ///     @li @b Field_flags type and @b field_flags() fuction
+    ///         for @ref WilltopicupdFields::Flags field.
     ///     @li @b Field_willTopic type and @b field_willTopic() fuction
     ///         for @ref WilltopicupdFields::WillTopic field.
     COMMS_MSG_FIELDS_NAMES(
+        flags,
         willTopic
     );
     
     // Compile time check for serialisation length.
     static const std::size_t MsgMinLen = Base::doMinLength();
-    static_assert(MsgMinLen == 0U, "Unexpected min serialisation length");
+    static_assert(MsgMinLen == 1U, "Unexpected min serialisation length");
     
     /// @brief Name of the message.
     static const char* doName()
