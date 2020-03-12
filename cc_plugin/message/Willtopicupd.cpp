@@ -22,11 +22,26 @@ namespace message
 namespace
 {
 
+struct FlagsMembers
+{
+    static QVariantMap createProps_flagsField()
+    {
+        using Field = mqttsn::message::WilltopicupdFields<>::FlagsMembers::FlagsField;
+        auto props = cc_plugin::field::createProps_flags(Field::name());
+        return props;
+        
+    }
+    
+};
+
 static QVariantMap createProps_flags()
 {
     using Field = mqttsn::message::WilltopicupdFields<>::Flags;
-    auto props = cc_plugin::field::createProps_flags(Field::name());
-    return props;
+    return
+        cc::property::field::ForField<Field>()
+            .name(Field::name())
+            .field(FlagsMembers::createProps_flagsField())
+            .asMap();
     
 }
 

@@ -20,13 +20,40 @@ namespace message
 /// @see mqttsn::message::WilltopicupdFields
 struct WilltopicupdFieldsCommon
 {
-    /// @brief Common types and functions for members of
+    /// @brief Scope for all the common definitions of the member fields of
     ///     @ref mqttsn::message::WilltopicupdFields::Flags field.
-    using FlagsMembersCommon = mqttsn::field::FlagsMembersCommon;
+    struct FlagsMembersCommon
+    {
+        /// @brief Common types and functions for members of
+        ///     @ref mqttsn::message::WilltopicupdFields::FlagsMembers::FlagsField field.
+        using FlagsFieldMembersCommon = mqttsn::field::FlagsMembersCommon;
+        
+        /// @brief Common types and functions for
+        ///     @ref mqttsn::message::WilltopicupdFields::FlagsMembers::FlagsField field.
+        struct FlagsFieldCommon : public mqttsn::field::FlagsCommon
+        {
+            /// @brief Name of the @ref mqttsn::message::WilltopicupdFields::FlagsMembers::FlagsField field.
+            static const char* name()
+            {
+                return "FlagsField";
+            }
+            
+        };
+        
+    };
     
-    /// @brief Common types and functions for
+    /// @brief Scope for all the common definitions of the
     ///     @ref mqttsn::message::WilltopicupdFields::Flags field.
-    using FlagsCommon = mqttsn::field::FlagsCommon;
+    struct FlagsCommon
+    {
+        /// @brief Name of the @ref mqttsn::message::WilltopicupdFields::Flags field.
+        static const char* name()
+        {
+            return "Flags";
+        }
+        
+    };
+    
     
     /// @brief Common types and functions for
     ///     @ref mqttsn::message::WilltopicupdFields::WillTopic field.
