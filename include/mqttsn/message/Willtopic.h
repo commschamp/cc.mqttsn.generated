@@ -140,9 +140,9 @@ public:
             return es;
         }
             
-        bool hasFlags = field_flags().doesExist();
-        bool hasNonEmptyTopic = !field_willTopic().value().empty();
-        if (hasFlags != hasNonEmptyTopic) {
+        bool hasMissingFlags = field_flags().isMissing();
+        bool hasEmptyTopic = field_willTopic().value().empty();
+        if (hasMissingFlags != hasEmptyTopic) {
             return comms::ErrorStatus::InvalidMsgData;
         }
         
@@ -153,18 +153,18 @@ public:
     bool doRefresh()
     {
         bool updated = Base::doRefresh();
-        bool hasFlags = field_flags().doesExist();
-        bool hasNonEmptyTopic = !field_willTopic().value().empty();
-        if (hasFlags == hasNonEmptyTopic) {
+        bool hasMissingFlags = !field_flags().doesExist();
+        bool hasEmptyTopic = field_willTopic().value().empty();
+        if (hasMissingFlags == hasEmptyTopic) {
             return updated;
         }
         
-        if (hasNonEmptyTopic) {
-            field_flags().setExists();
+        if (hasEmptyTopic) {
+            field_flags().setMissing();
             return true;
         }
         
-        field_flags().setMissing();
+        field_flags().setExists();
         return true;
     }
     
