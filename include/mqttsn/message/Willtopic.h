@@ -153,7 +153,7 @@ public:
     bool doRefresh()
     {
         bool updated = Base::doRefresh();
-        bool hasMissingFlags = !field_flags().doesExist();
+        bool hasMissingFlags = field_flags().isMissing();
         bool hasEmptyTopic = field_willTopic().value().empty();
         if (hasMissingFlags == hasEmptyTopic) {
             return updated;
