@@ -2,7 +2,7 @@
 
 #include "Flags.h"
 
-#include "cc_plugin/field/QoS.h"
+#include "cc_plugin/field/Qos.h"
 #include "comms_champion/property/field.h"
 #include "mqttsn/field/Flags.h"
 
@@ -53,11 +53,11 @@ struct FlagsMembers
         
     }
     
-    static QVariantMap createProps_qoS(bool serHidden)
+    static QVariantMap createProps_qos(bool serHidden)
     {
         static_cast<void>(serHidden);
-        using Field = mqttsn::field::FlagsMembers<>::QoS;
-        auto props = cc_plugin::field::createProps_qoS(Field::name(), true);
+        using Field = mqttsn::field::FlagsMembers<>::Qos;
+        auto props = cc_plugin::field::createProps_qos(Field::name(), true);
         return props;
         
     }
@@ -90,7 +90,7 @@ QVariantMap createProps_flags(const char* name, bool serHidden)
             .serialisedHidden(serHidden)
             .add(FlagsMembers::createProps_topicIdType(serHidden))
             .add(FlagsMembers::createProps_mid(serHidden))
-            .add(FlagsMembers::createProps_qoS(serHidden))
+            .add(FlagsMembers::createProps_qos(serHidden))
             .add(FlagsMembers::createProps_high(serHidden))
             .asMap();
     

@@ -8,7 +8,7 @@
 
 #include <cstdint>
 #include <type_traits>
-#include "mqttsn/field/QoSCommon.h"
+#include "mqttsn/field/QosCommon.h"
 
 namespace mqttsn
 {
@@ -99,8 +99,8 @@ struct FlagsMembersCommon
     };
     
     /// @brief Common types and functions for
-    ///     @ref mqttsn::field::FlagsMembers::QoS field.
-    using QoSCommon = mqttsn::field::QoSCommon;
+    ///     @ref mqttsn::field::FlagsMembers::Qos field.
+    using QosCommon = mqttsn::field::QosCommon;
     
     /// @brief Common functions for
     ///     @ref mqttsn::field::FlagsMembers::High field.

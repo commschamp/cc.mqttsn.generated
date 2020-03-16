@@ -6,6 +6,7 @@
 
 #pragma once
 
+#include "mqttsn/field/FlagsCommon.h"
 #include "mqttsn/field/WillTopicCommon.h"
 
 namespace mqttsn
@@ -19,6 +20,41 @@ namespace message
 /// @see mqttsn::message::WilltopicupdFields
 struct WilltopicupdFieldsCommon
 {
+    /// @brief Scope for all the common definitions of the member fields of
+    ///     @ref mqttsn::message::WilltopicupdFields::Flags field.
+    struct FlagsMembersCommon
+    {
+        /// @brief Common types and functions for members of
+        ///     @ref mqttsn::message::WilltopicupdFields::FlagsMembers::FlagsField field.
+        using FlagsFieldMembersCommon = mqttsn::field::FlagsMembersCommon;
+        
+        /// @brief Common types and functions for
+        ///     @ref mqttsn::message::WilltopicupdFields::FlagsMembers::FlagsField field.
+        struct FlagsFieldCommon : public mqttsn::field::FlagsCommon
+        {
+            /// @brief Name of the @ref mqttsn::message::WilltopicupdFields::FlagsMembers::FlagsField field.
+            static const char* name()
+            {
+                return "FlagsField";
+            }
+            
+        };
+        
+    };
+    
+    /// @brief Scope for all the common definitions of the
+    ///     @ref mqttsn::message::WilltopicupdFields::Flags field.
+    struct FlagsCommon
+    {
+        /// @brief Name of the @ref mqttsn::message::WilltopicupdFields::Flags field.
+        static const char* name()
+        {
+            return "Flags";
+        }
+        
+    };
+    
+    
     /// @brief Common types and functions for
     ///     @ref mqttsn::message::WilltopicupdFields::WillTopic field.
     using WillTopicCommon = mqttsn::field::WillTopicCommon;

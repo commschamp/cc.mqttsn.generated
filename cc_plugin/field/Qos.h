@@ -13,7 +13,7 @@ namespace cc_plugin
 namespace field
 {
 
-QVariantMap createProps_qoS(const char* name, bool serHidden = false);
+QVariantMap createProps_qos(const char* name, bool serHidden = false);
 
 } // namespace field
 

@@ -7,6 +7,7 @@
 
 #include <tuple>
 #include "comms/MessageBase.h"
+#include "comms/field/Optional.h"
 #include "comms/options.h"
 #include "mqttsn/MsgId.h"
 #include "mqttsn/field/FieldBase.h"
@@ -28,11 +29,38 @@ namespace message
 template <typename TOpt = mqttsn::options::DefaultOptions>
 struct WilltopicFields
 {
+    /// @brief Scope for all the member fields of @ref Flags optional.
+    struct FlagsMembers
+    {
+        /// @brief Definition of <b>"FlagsField"</b> field.
+        struct FlagsField : public
+            mqttsn::field::Flags<
+                TOpt
+            >
+        {
+            /// @brief Name of the field.
+            static const char* name()
+            {
+                return mqttsn::message::WilltopicFieldsCommon::FlagsMembersCommon::FlagsFieldCommon::name();
+            }
+            
+        };
+        
+    };
+    
     /// @brief Definition of <b>"Flags"</b> field.
-    using Flags =
-        mqttsn::field::Flags<
-            TOpt
-        >;
+    struct Flags : public
+        comms::field::Optional<
+            typename FlagsMembers::FlagsField
+        >
+    {
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return mqttsn::message::WilltopicFieldsCommon::FlagsCommon::name();
+        }
+        
+    };
     
     /// @brief Definition of <b>"WillTopic"</b> field.
     using WillTopic =
@@ -61,7 +89,8 @@ class Willtopic : public
         comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willtopic>,
         comms::option::def::FieldsImpl<typename WilltopicFields<TOpt>::All>,
         comms::option::def::MsgType<Willtopic<TMsgBase, TOpt> >,
-        comms::option::def::HasName
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -72,7 +101,8 @@ class Willtopic : public
             comms::option::def::StaticNumIdImpl<mqttsn::MsgId_Willtopic>,
             comms::option::def::FieldsImpl<typename WilltopicFields<TOpt>::All>,
             comms::option::def::MsgType<Willtopic<TMsgBase, TOpt> >,
-            comms::option::def::HasName
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:
@@ -93,12 +123,50 @@ public:
     
     // Compile time check for serialisation length.
     static const std::size_t MsgMinLen = Base::doMinLength();
-    static_assert(MsgMinLen == 1U, "Unexpected min serialisation length");
+    static_assert(MsgMinLen == 0U, "Unexpected min serialisation length");
     
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqttsn::message::WilltopicCommon::name();
+    }
+    
+    /// @brief Custom read functionality
+    template <typename TIter>
+    comms::ErrorStatus doRead(TIter& iter, std::size_t len)
+    {
+        auto es = Base::doRead(iter, len);
+        if (es != comms::ErrorStatus::Success) {
+            return es;
+        }
+            
+        bool hasMissingFlags = field_flags().isMissing();
+        bool hasEmptyTopic = field_willTopic().value().empty();
+        if (hasMissingFlags != hasEmptyTopic) {
+            return comms::ErrorStatus::InvalidMsgData;
+        }
+        
+        return comms::ErrorStatus::Success;
+    }
+    
+    /// @brief Custom refresh functionality
+    bool doRefresh()
+    {
+        bool updated = Base::doRefresh();
+        
+        bool hasEmptyTopic = field_willTopic().value().empty();
+        if ((hasEmptyTopic && field_flags().isMissing()) ||
+            ((!hasEmptyTopic) && field_flags().doesExist())) {
+            return updated;
+        }
+        
+        if (hasEmptyTopic) {
+            field_flags().setMissing();
+            return true;
+        }
+        
+        field_flags().setExists();
+        return true;
     }
     
     

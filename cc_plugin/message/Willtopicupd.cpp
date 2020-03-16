@@ -5,6 +5,7 @@
 #include "comms_champion/property/field.h"
 #include "comms_champion/ProtocolMessageBase.h"
 #include "mqttsn/message/Willtopicupd.h"
+#include "cc_plugin/field/Flags.h"
 #include "cc_plugin/field/WillTopic.h"
 
 namespace cc = comms_champion;
@@ -21,6 +22,29 @@ namespace message
 namespace
 {
 
+struct FlagsMembers
+{
+    static QVariantMap createProps_flagsField()
+    {
+        using Field = mqttsn::message::WilltopicupdFields<>::FlagsMembers::FlagsField;
+        auto props = cc_plugin::field::createProps_flags(Field::name());
+        return props;
+        
+    }
+    
+};
+
+static QVariantMap createProps_flags()
+{
+    using Field = mqttsn::message::WilltopicupdFields<>::Flags;
+    return
+        cc::property::field::ForField<Field>()
+            .name(Field::name())
+            .field(FlagsMembers::createProps_flagsField())
+            .asMap();
+    
+}
+
 static QVariantMap createProps_willTopic()
 {
     using Field = mqttsn::message::WilltopicupdFields<>::WillTopic;
@@ -32,6 +56,7 @@ static QVariantMap createProps_willTopic()
 QVariantList createProps()
 {
     QVariantList props;
+    props.append(createProps_flags());
     props.append(createProps_willTopic());
     return props;
 }
