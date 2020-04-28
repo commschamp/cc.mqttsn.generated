@@ -7,9 +7,9 @@ function (cc_plugin_all_messages)
     set (src
         field/ClientId.cpp
         field/Data.cpp
+        field/GwAdd.cpp
         field/Duration.cpp
         field/Flags.cpp
-        field/GwAdd.cpp
         field/GwId.cpp
         field/MessageId.cpp
         field/MsgId.cpp
@@ -18,8 +18,8 @@ function (cc_plugin_all_messages)
         field/Qos.cpp
         field/Radius.cpp
         field/ReturnCode.cpp
-        field/TopicId.cpp
         field/TopicName.cpp
+        field/TopicId.cpp
         field/WillMsg.cpp
         field/WillTopic.cpp
         Message.cpp
