@@ -14,10 +14,10 @@
 #define MQTTSN_MAJOR_VERSION (0U)
 
 /// @brief Minor version of the protocol library.
-#define MQTTSN_MINOR_VERSION (18U)
+#define MQTTSN_MINOR_VERSION (19U)
 
 /// @brief Patch version of the protocol library.
-#define MQTTSN_PATCH_VERSION (2U)
+#define MQTTSN_PATCH_VERSION (0U)
 
 /// @brief Full version of the protocol library as single number.
 #define MQTTSN_VERSION (COMMS_MAKE_VERSION(MQTTSN_MAJOR_VERSION, MQTTSN_MINOR_VERSION, MQTTSN_PATCH_VERSION))
