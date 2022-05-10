@@ -2,7 +2,7 @@
 /// @tableofcontents
 /// This generated code implements "mqttsn" binary protocol using various
 /// classes from
-/// <a href="https://github.com/commschamp/comms_champion#comms-library">COMMS Library</a>.@n
+/// <a href="https://github.com/commschamp/comms">COMMS Library</a>.@n
 /// Below is a short summary of generated classes.
 /// Please refer to <b>"How to Use Defined Custom Protocol"</b> page of its documentation
 /// for detailed explanation on how to use them.
@@ -15,16 +15,16 @@
 ///
 /// @section main_messages Available Message Classes
 /// The following namespaces contain all the classes describing available messages:
-/// @li @ref mqttsn::message (residing in @b mqttsn/message directory).
+/// @li @ref mqttsn::message (defined in @b mqttsn/message  directory)
 ///
 /// @section main_fields Available Common Fields
 /// The following namespaces contain all definition of all the fields,
 /// which can be references by multiple messages:
-/// @li @ref mqttsn::field (residing in @b mqttsn/field directory).
+/// @li @ref mqttsn::field (defined in @b mqttsn/field  directory)
 ///
 /// @section main_interfaces Common Interface Classes
 /// The available common interface classes are:
-/// @li @ref mqttsn::Message from @b mqttsn/Message.h header file).
+/// @li @ref mqttsn::Message (defined in @b mqttsn/Message.h header file).
 ///
 /// @section main_frames Frame (Protocol Stack) Classes
 /// The available frame (protocol stack) classes are:
@@ -55,17 +55,17 @@
 /// based.
 ///
 /// The available functions are:
-/// @li @ref mqttsn::dispatch::dispatchMessage
+/// @li @ref mqttsn::dispatch::dispatchMessage()
 /// (defined in @b mqttsn/dispatch/DispatchMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchMessageDefaultOptions
+/// @li @ref mqttsn::dispatch::dispatchMessageDefaultOptions()
 /// (defined in @b mqttsn/dispatch/DispatchMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchServerInputMessage
+/// @li @ref mqttsn::dispatch::dispatchServerInputMessage()
 /// (defined in @b mqttsn/dispatch/DispatchServerInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchServerInputMessageDefaultOptions
+/// @li @ref mqttsn::dispatch::dispatchServerInputMessageDefaultOptions()
 /// (defined in @b mqttsn/dispatch/DispatchServerInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchClientInputMessage
+/// @li @ref mqttsn::dispatch::dispatchClientInputMessage()
 /// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchClientInputMessageDefaultOptions
+/// @li @ref mqttsn::dispatch::dispatchClientInputMessageDefaultOptions()
 /// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
 ///
 /// There are also some dispatcher objects to be used with
