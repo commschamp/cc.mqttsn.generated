@@ -26,10 +26,10 @@ namespace dispatch
 ///     to handle and one for the interface class as well.
 ///     @code
 ///     using MyInterface = mqttsn::Message<...>;
-///     using MyAdvertise = mqttsn::message::Advertise<MyInterface, mqttsn::options::DefaultOptions>;
+///     using MySearchgw = mqttsn::message::Searchgw<MyInterface, mqttsn::options::DefaultOptions>;
 ///     using MyGwinfo = mqttsn::message::Gwinfo<MyInterface, mqttsn::options::DefaultOptions>;
 ///     struct MyHandler {
-///         void handle(MyAdvertise& msg) {...}
+///         void handle(MySearchgw& msg) {...}
 ///         void handle(MyGwinfo& msg) {...}
 ///         ...
 ///         // Handle all unexpected or irrelevant messages.
@@ -47,9 +47,9 @@ auto dispatchServerInputMessage(
 {
     using InterfaceType = typename std::decay<decltype(msg)>::type;
     switch(id) {
-    case mqttsn::MsgId_Advertise:
+    case mqttsn::MsgId_Searchgw:
     {
-        using MsgType = mqttsn::message::Advertise<InterfaceType, TProtOptions>;
+        using MsgType = mqttsn::message::Searchgw<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Gwinfo:
@@ -57,19 +57,19 @@ auto dispatchServerInputMessage(
         using MsgType = mqttsn::message::Gwinfo<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
-    case mqttsn::MsgId_Connack:
+    case mqttsn::MsgId_Connect:
     {
-        using MsgType = mqttsn::message::Connack<InterfaceType, TProtOptions>;
+        using MsgType = mqttsn::message::Connect<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
-    case mqttsn::MsgId_Willtopicreq:
+    case mqttsn::MsgId_Willtopic:
     {
-        using MsgType = mqttsn::message::Willtopicreq<InterfaceType, TProtOptions>;
+        using MsgType = mqttsn::message::Willtopic<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
-    case mqttsn::MsgId_Willmsgreq:
+    case mqttsn::MsgId_Willmsg:
     {
-        using MsgType = mqttsn::message::Willmsgreq<InterfaceType, TProtOptions>;
+        using MsgType = mqttsn::message::Willmsg<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Register:
@@ -107,14 +107,14 @@ auto dispatchServerInputMessage(
         using MsgType = mqttsn::message::Pubrel<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
-    case mqttsn::MsgId_Suback:
+    case mqttsn::MsgId_Subscribe:
     {
-        using MsgType = mqttsn::message::Suback<InterfaceType, TProtOptions>;
+        using MsgType = mqttsn::message::Subscribe<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
-    case mqttsn::MsgId_Unsuback:
+    case mqttsn::MsgId_Unsubscribe:
     {
-        using MsgType = mqttsn::message::Unsuback<InterfaceType, TProtOptions>;
+        using MsgType = mqttsn::message::Unsubscribe<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqttsn::MsgId_Pingreq:
@@ -132,14 +132,14 @@ auto dispatchServerInputMessage(
         using MsgType = mqttsn::message::Disconnect<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
-    case mqttsn::MsgId_Willtopicresp:
+    case mqttsn::MsgId_Willtopicupd:
     {
-        using MsgType = mqttsn::message::Willtopicresp<InterfaceType, TProtOptions>;
+        using MsgType = mqttsn::message::Willtopicupd<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
-    case mqttsn::MsgId_Willmsgresp:
+    case mqttsn::MsgId_Willmsgupd:
     {
-        using MsgType = mqttsn::message::Willmsgresp<InterfaceType, TProtOptions>;
+        using MsgType = mqttsn::message::Willmsgupd<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
     default:
