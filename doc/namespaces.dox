@@ -2,19 +2,19 @@
 /// @brief Protocol specific namespace.
 
 /// @namespace mqttsn::message
-/// @brief Namespace for all the messages in @ref mqttsn namespace.
+/// @brief Namespace for all the messages in mqttsn namespace.
 
 /// @namespace mqttsn::field
-/// @brief Namespace for all the stand alone fields defined in @ref mqttsn namespace.
+/// @brief Namespace for all the stand alone fields defined in mqttsn namespace.
 
 /// @namespace mqttsn::frame
-/// @brief Namespace for all the frames defined in @ref mqttsn namespace.
+/// @brief Namespace for all the frames defined in mqttsn namespace.
 
 /// @namespace mqttsn::frame::layer
-/// @brief Namespace for the custom frame layers defined in @ref mqttsn namespace.
+/// @brief Namespace for the custom frame layers defined in mqttsn namespace.
 
 /// @namespace mqttsn::frame::checksum
-/// @brief Namespace for the custom frame layers defined in @ref mqttsn namespace.
+/// @brief Namespace for the custom frame layers defined in mqttsn namespace.
 
 
 /// @namespace mqttsn::options
@@ -25,4 +25,5 @@
 
 /// @namespace mqttsn::dispatch
 /// @brief Main namespace for the various message dispatch functions.
+
 

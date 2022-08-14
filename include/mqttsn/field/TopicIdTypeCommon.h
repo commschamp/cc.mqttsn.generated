@@ -2,7 +2,7 @@
 
 /// @file
 /// @brief Contains common template parameters independent functionality of
-///    @ref mqttsn::field::Qos field.
+///    @ref mqttsn::field::TopicIdType field.
 
 #pragma once
 
@@ -19,22 +19,21 @@ namespace field
 {
 
 /// @brief Common types and functions for
-///     @ref mqttsn::field::Qos field.
-struct QosCommon
+///     @ref mqttsn::field::TopicIdType field.
+struct TopicIdTypeCommon
 {
     /// @brief Values enumerator for
-    ///     @ref mqttsn::field::Qos field.
+    ///     @ref mqttsn::field::TopicIdType field.
     enum class ValueType : std::uint8_t
     {
-        AtMostOnceDelivery = 0, ///< value @b AtMostOnceDelivery. 
-        AtLeastOnceDelivery = 1, ///< value @b AtLeastOnceDelivery. 
-        ExactlyOnceDelivery = 2, ///< value @b ExactlyOnceDelivery. 
-        NoGwPublish = 3, ///< value @b NoGwPublish. 
+        Normal = 0, ///< value @b Normal. 
+        PredefinedTopicId = 1, ///< value @b PredefinedTopicId. 
+        ShortTopicName = 2, ///< value @b ShortTopicName. 
 
         // --- Extra values generated for convenience ---
         FirstValue = 0, ///< First defined value.
-        LastValue = 3, ///< Last defined value.
-        ValuesLimit = 4, ///< Upper limit for defined values.
+        LastValue = 2, ///< Last defined value.
+        ValuesLimit = 3, ///< Upper limit for defined values.
     };
 
     /// @brief Single value name info entry
@@ -45,10 +44,10 @@ struct QosCommon
     ///     The @b second value of the pair is the size of the array.
     using ValueNamesMapInfo = std::pair<const ValueNameInfo*, std::size_t>;
 
-    /// @brief Name of the @ref mqttsn::field::Qos field.
+    /// @brief Name of the @ref mqttsn::field::TopicIdType field.
     static const char* name()
     {
-        return "Qos";
+        return "TopicIdType";
     }
 
     /// @brief Retrieve name of the enum value
@@ -66,10 +65,9 @@ struct QosCommon
     static ValueNamesMapInfo valueNamesMap()
     {
         static const char* Map[] = {
-            "AtMostOnceDelivery",
-            "AtLeastOnceDelivery",
-            "ExactlyOnceDelivery",
-            "NoGwPublish"
+            "Normal",
+            "PredefinedTopicId",
+            "ShortTopicName"
         };
         static const std::size_t MapSize = std::extent<decltype(Map)>::value;
 
@@ -78,8 +76,8 @@ struct QosCommon
 };
 
 /// @brief Values enumerator for
-///     @ref mqttsn::field::Qos field.
-using QosVal = QosCommon::ValueType;
+///     @ref mqttsn::field::TopicIdType field.
+using TopicIdTypeVal = TopicIdTypeCommon::ValueType;
 
 } // namespace field
 
