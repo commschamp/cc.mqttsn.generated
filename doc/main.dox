@@ -1,6 +1,6 @@
-/// @mainpage "mqttsn" Binary Protocol Library
+/// @mainpage "cc_mqttsn" Binary Protocol Library
 /// @tableofcontents
-/// This generated code implements "mqttsn" binary protocol using various
+/// This generated code implements "cc_mqttsn" binary protocol using various
 /// classes from
 /// <a href="https://github.com/commschamp/comms">COMMS Library</a>.@n
 /// Below is a short summary of generated classes.
@@ -15,36 +15,36 @@
 ///
 /// @section main_messages Available Message Classes
 /// The following namespaces contain all the classes describing available messages:
-/// @li @ref mqttsn::message (defined in @b mqttsn/message  directory)
+/// @li @ref cc_mqttsn::message (defined in @b cc_mqttsn/message  directory)
 ///
 /// @section main_fields Available Common Fields
 /// The following namespaces contain all definition of all the fields,
 /// which can be references by multiple messages:
-/// @li @ref mqttsn::field (defined in @b mqttsn/field  directory)
+/// @li @ref cc_mqttsn::field (defined in @b cc_mqttsn/field  directory)
 ///
 /// @section main_interfaces Common Interface Classes
 /// The available common interface classes are:
-/// @li @ref mqttsn::Message (defined in @b mqttsn/Message.h header file).
+/// @li @ref cc_mqttsn::Message (defined in @b cc_mqttsn/Message.h header file).
 ///
 /// @section main_frames Frame (Protocol Stack) Classes
 /// The available frame (protocol stack) classes are:
-/// @li @ref mqttsn::frame::Frame (from @b mqttsn/frame/Frame.h header file).
+/// @li @ref cc_mqttsn::frame::Frame (from @b cc_mqttsn/frame/Frame.h header file).
 ///
 /// Every frame class/type definition receives (as a template parameter) a list of
 /// @b input message types it is expected to recognize. Default defintion
-/// uses @ref mqttsn::input::AllMessages (defined in @b mqttsn/input/AllMessages.h).
+/// uses @ref cc_mqttsn::input::AllMessages (defined in @b cc_mqttsn/input/AllMessages.h).
 /// @n If protocol defines any uni-directional message, then it is recommended to use
-/// either @ref mqttsn::input::ServerInputMessages (from @b mqttsn/input/ServerInputMessages.h)
-/// or @ref mqttsn::input::ClientInputMessages  (from @b mqttsn/input/ClientInputMessages.h)
+/// either @ref cc_mqttsn::input::ServerInputMessages (from @b cc_mqttsn/input/ServerInputMessages.h)
+/// or @ref cc_mqttsn::input::ClientInputMessages  (from @b cc_mqttsn/input/ClientInputMessages.h)
 /// @b NOTE, that the frame definition does not exactly follow the recommended
 /// instructions from <b>Protocol Stack Definition Tutorial</b> page of @b COMMS
 /// library documentation. The extra customization (see @ref main_customization below)
 /// is performed by passing options to the layers themselves.
 ///
 /// The available bundles of input messages are:
-/// @li @ref mqttsn::input::AllMessages (from @b mqttsn/input/AllMessages.h header file).
-/// @li @ref mqttsn::input::ServerInputMessages (from @b mqttsn/input/ServerInputMessages.h header file).
-/// @li @ref mqttsn::input::ClientInputMessages (from @b mqttsn/input/ClientInputMessages.h header file).
+/// @li @ref cc_mqttsn::input::AllMessages (from @b cc_mqttsn/input/AllMessages.h header file).
+/// @li @ref cc_mqttsn::input::ServerInputMessages (from @b cc_mqttsn/input/ServerInputMessages.h header file).
+/// @li @ref cc_mqttsn::input::ClientInputMessages (from @b cc_mqttsn/input/ClientInputMessages.h header file).
 ///
 /// @section main_dispatch Dispatching Message Objects
 /// While the @b COMMS library provides various built-in ways of 
@@ -55,55 +55,55 @@
 /// based.
 ///
 /// The available functions are:
-/// @li @ref mqttsn::dispatch::dispatchMessage()
-/// (defined in @b mqttsn/dispatch/DispatchMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchMessageDefaultOptions()
-/// (defined in @b mqttsn/dispatch/DispatchMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchServerInputMessage()
-/// (defined in @b mqttsn/dispatch/DispatchServerInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchServerInputMessageDefaultOptions()
-/// (defined in @b mqttsn/dispatch/DispatchServerInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchClientInputMessage()
-/// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::dispatchClientInputMessageDefaultOptions()
-/// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::dispatchMessage()
+/// (defined in @b cc_mqttsn/dispatch/DispatchMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::dispatchMessageDefaultOptions()
+/// (defined in @b cc_mqttsn/dispatch/DispatchMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::dispatchServerInputMessage()
+/// (defined in @b cc_mqttsn/dispatch/DispatchServerInputMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::dispatchServerInputMessageDefaultOptions()
+/// (defined in @b cc_mqttsn/dispatch/DispatchServerInputMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::dispatchClientInputMessage()
+/// (defined in @b cc_mqttsn/dispatch/DispatchClientInputMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::dispatchClientInputMessageDefaultOptions()
+/// (defined in @b cc_mqttsn/dispatch/DispatchClientInputMessage.h header file).
 ///
 /// There are also some dispatcher objects to be used with
 /// @b comms::processAllWithDispatchViaDispatcher() function or similar.
-/// @li @ref mqttsn::dispatch::MsgDispatcher
-/// (defined in @b mqttsn/dispatch/DispatchMessage.h header file).
-/// @li @ref mqttsn::dispatch::MsgDispatcherDefaultOptions
-/// (defined in @b mqttsn/dispatch/DispatchMessage.h header file).
-/// @li @ref mqttsn::dispatch::ServerInputMsgDispatcher
-/// (defined in @b mqttsn/dispatch/DispatchServerInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::ServerInputMsgDispatcherDefaultOptions
-/// (defined in @b mqttsn/dispatch/DispatchServerInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::ClientInputMsgDispatcher
-/// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
-/// @li @ref mqttsn::dispatch::ClientInputMsgDispatcherDefaultOptions
-/// (defined in @b mqttsn/dispatch/DispatchClientInputMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::MsgDispatcher
+/// (defined in @b cc_mqttsn/dispatch/DispatchMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::MsgDispatcherDefaultOptions
+/// (defined in @b cc_mqttsn/dispatch/DispatchMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::ServerInputMsgDispatcher
+/// (defined in @b cc_mqttsn/dispatch/DispatchServerInputMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::ServerInputMsgDispatcherDefaultOptions
+/// (defined in @b cc_mqttsn/dispatch/DispatchServerInputMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::ClientInputMsgDispatcher
+/// (defined in @b cc_mqttsn/dispatch/DispatchClientInputMessage.h header file).
+/// @li @ref cc_mqttsn::dispatch::ClientInputMsgDispatcherDefaultOptions
+/// (defined in @b cc_mqttsn/dispatch/DispatchClientInputMessage.h header file).
 ///
 /// @section main_customization Customization
 /// Depending on the value of @b customization option passed to the @b commsdsl2comms
-/// code generator, the latter generates @ref mqttsn::options::DefaultOptions
-/// struct (defined in @b mqttsn/options/DefaultOptions.h file),
+/// code generator, the latter generates @ref cc_mqttsn::options::DefaultOptions
+/// struct (defined in @b cc_mqttsn/options/DefaultOptions.h file),
 /// which is used by default throughout the protocol definition classes.
 /// The struct contains all the available type definition, which can be used to
 /// customize default data structures and/or behaviour of various classes.
 /// If any additional customization is required, just recreate similar struct with
 /// relevant types overriden with new definition. The easiest way is to extend
-/// the mqttsn::options::DefaultOptions. For example:
+/// the cc_mqttsn::options::DefaultOptions. For example:
 /// @code
-/// struct MyOptions : public mqttsn::options::DefaultOptions
+/// struct MyOptions : public cc_mqttsn::options::DefaultOptions
 /// {
-///     struct field : public mqttsn::options::DefaultOptions::field
+///     struct field : public cc_mqttsn::options::DefaultOptions::field
 ///     {
 ///         // use comms::util::StaticString as storage type
 ///         using SomeStringField = comms::option::app::FixedSizeStorage<32>;
 ///     };
 /// };
 /// @endcode
-/// @b NOTE, that inner scope of structs in the mqttsn::options::DefaultOptions
+/// @b NOTE, that inner scope of structs in the cc_mqttsn::options::DefaultOptions
 /// resembles scope of namespaces used in protocol definition.
 ///
 /// The @b COMMS library also provides a flexible way to configure polymorphic
@@ -113,13 +113,13 @@
 /// other for output:
 /// @code
 /// using MyInputMsg =
-///    mqttsn::Message<
+///    cc_mqttsn::Message<
 ///        comms::option::app::ReadIterator<const std::uint8_t*>, // for polymorphic read
 ///        comms::option::app::Handler<MyHandler> // for polymorphic dispatch
 ///    >;
 ///
 /// using MyOutputMsg =
-///    mqttsn::Message<
+///    cc_mqttsn::Message<
 ///        comms::option::app::WriteIterator<std::uint8_t*>, // for polymorphic write
 ///        comms::option::app::LengthInfoInterface, // for polymorphic serialization length retrieval
 ///        comms::option::app::IdInfoInterface // for polymorphic message ID retrieval
@@ -129,7 +129,7 @@
 /// single interface class:
 /// @code
 /// using MyMsg =
-///    mqttsn::Message<
+///    cc_mqttsn::Message<
 ///        comms::option::app::ReadIterator<const std::uint8_t*>, // for polymorphic read
 ///        comms::option::app::Handler<MyHandler> // for polymorphic dispatch
 ///        comms::option::app::WriteIterator<std::uint8_t*>, // for polymorphic write
@@ -137,15 +137,15 @@
 ///        comms::option::app::IdInfoInterface // for polymorphic message ID retrieval
 ///    >;
 /// @endcode
-/// In this case the code generator may also define @b mqttsn::options::ServerDefaultOptions
-/// (defined in @b mqttsn/options/ServerDefaultOptions.h file) and
-/// @b mqttsn::options::ClientDefaultOptions (defined in @b mqttsn/options/ClientDefaultOptions.h file).
+/// In this case the code generator may also define @b cc_mqttsn::options::ServerDefaultOptions
+/// (defined in @b cc_mqttsn/options/ServerDefaultOptions.h file) and
+/// @b cc_mqttsn::options::ClientDefaultOptions (defined in @b cc_mqttsn/options/ClientDefaultOptions.h file).
 /// These structs suppress generation of unnecessary virtual functions which are not
 /// going to be used. Consider using this structs as options instead of default
-/// mqttsn::options::DefaultOptions.
+/// cc_mqttsn::options::DefaultOptions.
 ///
-/// Also there is @ref mqttsn::options::BareMetalDefaultOptions
-/// (defined in @b mqttsn/options/BareMetalDefaultOptions.h file) which can help in defining
+/// Also there is @ref cc_mqttsn::options::BareMetalDefaultOptions
+/// (defined in @b cc_mqttsn/options/BareMetalDefaultOptions.h file) which can help in defining
 /// options for bare-metal applications. It exclude all usage of dynamic memory allocation.
 ///
 /// In case non-custom &lt;id&gt; layer has been used in schema (files), custom,
@@ -158,22 +158,22 @@
 /// never outlive the input buffer. In such scenarios it could be a waste of memory / CPU cycles to
 /// copy bytes from the input buffer to internal storage of the fields like &lt;string&gt;
 /// (@b comms::field::String) and/or &lt;data&gt; (@b comms::field::ArrayList of raw bytes).
-/// The generated code also provides mqttsn::options::DataViewDefaultOptions (defined in
-/// @b mqttsn/options/DataViewDefaultOptions.h file) where relevant fields apply @b comms::option::app::OrigDataView
+/// The generated code also provides cc_mqttsn::options::DataViewDefaultOptions (defined in
+/// @b cc_mqttsn/options/DataViewDefaultOptions.h file) where relevant fields apply @b comms::option::app::OrigDataView
 /// option.
 ///
 /// Also note that the specified extension options are implemented as the following template classes
 /// which receive other options as their base class and apply relevant changes on top.
-/// @li @ref mqttsn::options::ClientDefaultOptionsT
-/// @li @ref mqttsn::options::ServerDefaultOptionsT
-/// @li @ref mqttsn::options::BareMetalDefaultOptionsT
-/// @li @ref mqttsn::options::DataViewDefaultOptionsT
+/// @li @ref cc_mqttsn::options::ClientDefaultOptionsT
+/// @li @ref cc_mqttsn::options::ServerDefaultOptionsT
+/// @li @ref cc_mqttsn::options::BareMetalDefaultOptionsT
+/// @li @ref cc_mqttsn::options::DataViewDefaultOptionsT
 ///
 /// As the result it is possible to combine them. For example:
 /// @code
 /// using MyOptions=
-///     mqttsn::options::DataViewDefaultOptionsT<
-///         mqttsn::options::ClientDefaultOptions
+///     cc_mqttsn::options::DataViewDefaultOptionsT<
+///         cc_mqttsn::options::ClientDefaultOptions
 ///     >;
 /// @endcode
 
