@@ -1,13 +1,13 @@
 cmake_minimum_required (VERSION 3.1)
-project ("mqttsn")
+project ("cc_mqttsn")
 
 option (OPT_REQUIRE_COMMS_LIB "Require COMMS library, find it and set as dependency to the protocol library" ON)
 
 # Other parameters:
 # OPT_CMAKE_EXPORT_NAMESPACE - Set namespace for a protocol library
 #     exported via generated *Config.cmake file. Defaults to "cc".
-# OPT_CMAKE_EXPORT_CONFIG_NAME - Override default name "mqttsn" of the cmake generated config file export
-#     (mqttsnConfig) with provided new name.
+# OPT_CMAKE_EXPORT_CONFIG_NAME - Override default name "cc_mqttsn" of the cmake generated config file export
+#     (cc_mqttsnConfig) with provided new name.
 
 if (CMAKE_TOOLCHAIN_FILE AND EXISTS ${CMAKE_TOOLCHAIN_FILE})
     message(STATUS "Loading toolchain from ${CMAKE_TOOLCHAIN_FILE}")
@@ -34,7 +34,7 @@ if (DOXYGEN_FOUND)
     endif ()
 
     file (WRITE "${updated_config_file}" "${modified_config_text}")
-    set (doc_tgt "doc_mqttsn")
+    set (doc_tgt "doc_cc_mqttsn")
     add_custom_target ("${doc_tgt}"
         COMMAND ${CMAKE_COMMAND} -E make_directory ${doc_output_dir}
         COMMAND ${DOXYGEN_EXECUTABLE} ${updated_config_file}
@@ -44,16 +44,16 @@ endif ()
 ######################################################################
 
 # Define protocol library
-add_library(mqttsn INTERFACE)
+add_library(cc_mqttsn INTERFACE)
 
-target_include_directories(mqttsn INTERFACE
+target_include_directories(cc_mqttsn INTERFACE
     $<INSTALL_INTERFACE:include>
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
 if (OPT_REQUIRE_COMMS_LIB)
     find_package(LibComms REQUIRED)
-    target_link_libraries(mqttsn INTERFACE cc::comms)
+    target_link_libraries(cc_mqttsn INTERFACE cc::comms)
 endif ()
 
 if ("${OPT_CMAKE_EXPORT_NAMESPACE}" STREQUAL "")
@@ -61,10 +61,10 @@ if ("${OPT_CMAKE_EXPORT_NAMESPACE}" STREQUAL "")
 endif ()
 
 if ("${OPT_CMAKE_EXPORT_CONFIG_NAME}" STREQUAL "")
-    set (OPT_CMAKE_EXPORT_CONFIG_NAME "mqttsn")
+    set (OPT_CMAKE_EXPORT_CONFIG_NAME "cc_mqttsn")
 endif ()
 
-install(TARGETS mqttsn EXPORT ${OPT_CMAKE_EXPORT_CONFIG_NAME}Config)
+install(TARGETS cc_mqttsn EXPORT ${OPT_CMAKE_EXPORT_CONFIG_NAME}Config)
 install(EXPORT ${OPT_CMAKE_EXPORT_CONFIG_NAME}Config
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/${OPT_CMAKE_EXPORT_CONFIG_NAME}/cmake
     NAMESPACE ${OPT_CMAKE_EXPORT_NAMESPACE}::
@@ -75,23 +75,23 @@ install (
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
-file (READ "${PROJECT_SOURCE_DIR}/include/mqttsn/Version.h" version_file)
-string (REGEX MATCH "MQTTSN_MAJOR_VERSION[^0-9]*([0-9]*)U*" _ ${version_file})
+file (READ "${PROJECT_SOURCE_DIR}/include/cc_mqttsn/Version.h" version_file)
+string (REGEX MATCH "CC_MQTTSN_MAJOR_VERSION[^0-9]*([0-9]*)U*" _ ${version_file})
 set (major_ver ${CMAKE_MATCH_1})
-string (REGEX MATCH "MQTTSN_MINOR_VERSION[^0-9]*([0-9]*)U*" _ ${version_file})
+string (REGEX MATCH "CC_MQTTSN_MINOR_VERSION[^0-9]*([0-9]*)U*" _ ${version_file})
 set (minor_ver ${CMAKE_MATCH_1})
-string (REGEX MATCH "MQTTSN_PATCH_VERSION[^0-9]*([0-9]*)U*" _ ${version_file})
+string (REGEX MATCH "CC_MQTTSN_PATCH_VERSION[^0-9]*([0-9]*)U*" _ ${version_file})
 set (patch_ver ${CMAKE_MATCH_1})
 if ((NOT "${major_ver}" STREQUAL "") AND
     (NOT "${minor_ver}" STREQUAL "") AND
     (NOT "${patch_ver}" STREQUAL ""))
-    set (MQTTSN_VERSION "${major_ver}.${minor_ver}.${patch_ver}")
+    set (CC_MQTTSN_VERSION "${major_ver}.${minor_ver}.${patch_ver}")
 
-    message (STATUS "Detected version ${MQTTSN_VERSION} of the protocol")
+    message (STATUS "Detected version ${CC_MQTTSN_VERSION} of the protocol")
     include(CMakePackageConfigHelpers)
     write_basic_package_version_file(
         ${CMAKE_BINARY_DIR}/${OPT_CMAKE_EXPORT_CONFIG_NAME}ConfigVersion.cmake
-        VERSION ${MQTTSN_VERSION}
+        VERSION ${CC_MQTTSN_VERSION}
         COMPATIBILITY AnyNewerVersion)
 
     install (

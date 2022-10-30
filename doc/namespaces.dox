@@ -1,29 +1,29 @@
-/// @namespace mqttsn
+/// @namespace cc_mqttsn
 /// @brief Protocol specific namespace.
 
-/// @namespace mqttsn::message
-/// @brief Namespace for all the messages in mqttsn namespace.
+/// @namespace cc_mqttsn::message
+/// @brief Namespace for all the messages in cc_mqttsn namespace.
 
-/// @namespace mqttsn::field
-/// @brief Namespace for all the stand alone fields defined in mqttsn namespace.
+/// @namespace cc_mqttsn::field
+/// @brief Namespace for all the stand alone fields defined in cc_mqttsn namespace.
 
-/// @namespace mqttsn::frame
-/// @brief Namespace for all the frames defined in mqttsn namespace.
+/// @namespace cc_mqttsn::frame
+/// @brief Namespace for all the frames defined in cc_mqttsn namespace.
 
-/// @namespace mqttsn::frame::layer
-/// @brief Namespace for the custom frame layers defined in mqttsn namespace.
+/// @namespace cc_mqttsn::frame::layer
+/// @brief Namespace for the custom frame layers defined in cc_mqttsn namespace.
 
-/// @namespace mqttsn::frame::checksum
-/// @brief Namespace for the custom frame layers defined in mqttsn namespace.
+/// @namespace cc_mqttsn::frame::checksum
+/// @brief Namespace for the custom frame layers defined in cc_mqttsn namespace.
 
 
-/// @namespace mqttsn::options
+/// @namespace cc_mqttsn::options
 /// @brief Main namespace for the various protocol options.
 
-/// @namespace mqttsn::input
+/// @namespace cc_mqttsn::input
 /// @brief Main namespace for hold input messages bundles.
 
-/// @namespace mqttsn::dispatch
+/// @namespace cc_mqttsn::dispatch
 /// @brief Main namespace for the various message dispatch functions.
 
 
