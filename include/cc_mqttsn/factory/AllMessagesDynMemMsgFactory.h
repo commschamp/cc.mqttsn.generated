@@ -91,6 +91,7 @@ public:
             case cc_mqttsn::MsgId_Willtopicresp: return MsgPtr(new cc_mqttsn::message::Willtopicresp<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Willmsgupd: return MsgPtr(new cc_mqttsn::message::Willmsgupd<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Willmsgresp: return MsgPtr(new cc_mqttsn::message::Willmsgresp<TInterface, TProtOptions>);
+            case cc_mqttsn::MsgId_Fwd: return MsgPtr(new cc_mqttsn::message::Fwd<TInterface, TProtOptions>);
             default: break;
         }
 
@@ -146,6 +147,7 @@ public:
             case cc_mqttsn::MsgId_Willtopicresp: return 1U;
             case cc_mqttsn::MsgId_Willmsgupd: return 1U;
             case cc_mqttsn::MsgId_Willmsgresp: return 1U;
+            case cc_mqttsn::MsgId_Fwd: return 1U;
             default: break;
         }
 

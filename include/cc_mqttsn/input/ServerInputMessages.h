@@ -8,6 +8,7 @@
 #include <tuple>
 #include "cc_mqttsn/message/Connect.h"
 #include "cc_mqttsn/message/Disconnect.h"
+#include "cc_mqttsn/message/Fwd.h"
 #include "cc_mqttsn/message/Gwinfo.h"
 #include "cc_mqttsn/message/Pingreq.h"
 #include "cc_mqttsn/message/Pingresp.h"
@@ -57,7 +58,8 @@ using ServerInputMessages =
         cc_mqttsn::message::Pingresp<TBase, TOpt>,
         cc_mqttsn::message::Disconnect<TBase, TOpt>,
         cc_mqttsn::message::Willtopicupd<TBase, TOpt>,
-        cc_mqttsn::message::Willmsgupd<TBase, TOpt>
+        cc_mqttsn::message::Willmsgupd<TBase, TOpt>,
+        cc_mqttsn::message::Fwd<TBase, TOpt>
     >;
 
 } // namespace input
@@ -88,7 +90,8 @@ using ServerInputMessages =
     using prefix_ ## Pingresp ## suffix_ = cc_mqttsn::message::Pingresp<interface_, opts_>; \
     using prefix_ ## Disconnect ## suffix_ = cc_mqttsn::message::Disconnect<interface_, opts_>; \
     using prefix_ ## Willtopicupd ## suffix_ = cc_mqttsn::message::Willtopicupd<interface_, opts_>; \
-    using prefix_ ## Willmsgupd ## suffix_ = cc_mqttsn::message::Willmsgupd<interface_, opts_>;
+    using prefix_ ## Willmsgupd ## suffix_ = cc_mqttsn::message::Willmsgupd<interface_, opts_>; \
+    using prefix_ ## Fwd ## suffix_ = cc_mqttsn::message::Fwd<interface_, opts_>;
 
 /// @brief Create type aliases for the server input messages of the protocol using default options.
 /// @param prefix_ Prefix of the alias message type.

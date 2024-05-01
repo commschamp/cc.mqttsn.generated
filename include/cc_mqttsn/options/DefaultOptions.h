@@ -74,6 +74,16 @@ struct DefaultOptionsT : public TBase
         using Connect = comms::option::EmptyOption;
 
         /// @brief Extra options for fields of
+        ///     @ref cc_mqttsn::message::Fwd message.
+        struct FwdFields
+        {
+            /// @brief Extra options for @ref
+            ///     cc_mqttsn::message::FwdFields::Data
+            ///     field.
+            using Data = comms::option::EmptyOption;
+        };
+
+        /// @brief Extra options for fields of
         ///     @ref cc_mqttsn::message::Gwinfo message.
         struct GwinfoFields
         {

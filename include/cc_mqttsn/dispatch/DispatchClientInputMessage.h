@@ -142,6 +142,11 @@ auto dispatchClientInputMessage(
         using MsgType = cc_mqttsn::message::Willmsgresp<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
+    case cc_mqttsn::MsgId_Fwd:
+    {
+        using MsgType = cc_mqttsn::message::Fwd<InterfaceType, TProtOptions>;
+        return handler.handle(static_cast<MsgType&>(msg));
+    }
     default:
         break;
     };

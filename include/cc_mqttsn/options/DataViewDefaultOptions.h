@@ -69,6 +69,24 @@ struct DataViewDefaultOptionsT : public TBase
             >;
     }; // struct field
 
+    /// @brief Extra options for messages.
+    struct message : public TBase::message
+    {
+        /// @brief Extra options for fields of
+        ///     @ref cc_mqttsn::message::Fwd message.
+        struct FwdFields : public TBase::message::FwdFields
+        {
+            /// @brief Extra options for @ref
+            ///     cc_mqttsn::message::FwdFields::Data
+            ///     field.
+            using Data =
+                std::tuple<
+                    comms::option::app::OrigDataView,
+                    typename TBase::message::FwdFields::Data
+                >;
+        };
+    }; // struct message
+
     /// @brief Extra options for frames.
     struct frame : public TBase::frame
     {

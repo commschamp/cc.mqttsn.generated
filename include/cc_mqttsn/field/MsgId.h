@@ -30,7 +30,8 @@ class MsgId : public
         comms::option::def::ValidNumValueRange<0, 2>,
         comms::option::def::ValidNumValueRange<4, 16>,
         comms::option::def::ValidNumValueRange<18, 24>,
-        comms::option::def::ValidNumValueRange<26, 29>
+        comms::option::def::ValidNumValueRange<26, 29>,
+        comms::option::def::ValidNumValue<254>
     >
 {
     using Base =
@@ -41,7 +42,8 @@ class MsgId : public
             comms::option::def::ValidNumValueRange<0, 2>,
             comms::option::def::ValidNumValueRange<4, 16>,
             comms::option::def::ValidNumValueRange<18, 24>,
-            comms::option::def::ValidNumValueRange<26, 29>
+            comms::option::def::ValidNumValueRange<26, 29>,
+            comms::option::def::ValidNumValue<254>
         >;
 public:
     /// @brief Re-definition of the value type.
