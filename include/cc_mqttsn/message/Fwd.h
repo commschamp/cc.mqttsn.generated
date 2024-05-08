@@ -35,32 +35,32 @@ struct FwdFields
             TOpt
         >;
 
-    /// @brief Definition of <b>"Data"</b> field.
-    class Data : public
+    /// @brief Definition of <b>"NodeId"</b> field.
+    class NodeId : public
         comms::field::ArrayList<
             cc_mqttsn::field::FieldBase<>,
             std::uint8_t,
-            typename TOpt::message::FwdFields::Data
+            typename TOpt::message::FwdFields::NodeId
         >
     {
         using Base =
             comms::field::ArrayList<
                 cc_mqttsn::field::FieldBase<>,
                 std::uint8_t,
-                typename TOpt::message::FwdFields::Data
+                typename TOpt::message::FwdFields::NodeId
             >;
     public:
         /// @brief Name of the field.
         static const char* name()
         {
-            return cc_mqttsn::message::FwdFieldsCommon::DataCommon::name();
+            return cc_mqttsn::message::FwdFieldsCommon::NodeIdCommon::name();
         }
     };
 
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
         Ctrl,
-        Data
+        NodeId
     >;
 };
 
@@ -99,11 +99,11 @@ public:
     ///     The generated values, types and functions are:
     ///     @li @b FieldIdx_ctrl index, @b Field_ctrl type and @b field_ctrl() access fuction
     ///         for @ref FwdFields::Ctrl field.
-    ///     @li @b FieldIdx_data index, @b Field_data type and @b field_data() access fuction
-    ///         for @ref FwdFields::Data field.
+    ///     @li @b FieldIdx_nodeId index, @b Field_nodeId type and @b field_nodeId() access fuction
+    ///         for @ref FwdFields::NodeId field.
     COMMS_MSG_FIELDS_NAMES(
         ctrl,
-        data
+        nodeId
     );
 
     // Compile time check for serialisation length.

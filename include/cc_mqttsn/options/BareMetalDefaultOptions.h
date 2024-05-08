@@ -83,12 +83,12 @@ struct BareMetalDefaultOptionsT : public TBase
         struct FwdFields : public TBase::message::FwdFields
         {
             /// @brief Extra options for @ref
-            ///     cc_mqttsn::message::FwdFields::Data
+            ///     cc_mqttsn::message::FwdFields::NodeId
             ///     field.
-            using Data =
+            using NodeId =
                 std::tuple<
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                    typename TBase::message::FwdFields::Data
+                    typename TBase::message::FwdFields::NodeId
                 >;
         };
     }; // struct message

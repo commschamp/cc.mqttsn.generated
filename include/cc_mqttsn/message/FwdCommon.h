@@ -28,13 +28,13 @@ struct FwdFieldsCommon
     using CtrlCommon = cc_mqttsn::field::CtrlCommon;
 
     /// @brief Common types and functions for
-    ///     @ref cc_mqttsn::message::FwdFields::Data field.
-    struct DataCommon
+    ///     @ref cc_mqttsn::message::FwdFields::NodeId field.
+    struct NodeIdCommon
     {
-        /// @brief Name of the @ref cc_mqttsn::message::FwdFields::Data field.
+        /// @brief Name of the @ref cc_mqttsn::message::FwdFields::NodeId field.
         static const char* name()
         {
-            return "Data";
+            return "NodeId";
         }
     };
 };

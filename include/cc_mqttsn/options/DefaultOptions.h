@@ -78,9 +78,9 @@ struct DefaultOptionsT : public TBase
         struct FwdFields
         {
             /// @brief Extra options for @ref
-            ///     cc_mqttsn::message::FwdFields::Data
+            ///     cc_mqttsn::message::FwdFields::NodeId
             ///     field.
-            using Data = comms::option::EmptyOption;
+            using NodeId = comms::option::EmptyOption;
         };
 
         /// @brief Extra options for fields of

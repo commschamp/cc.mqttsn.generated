@@ -77,12 +77,12 @@ struct DataViewDefaultOptionsT : public TBase
         struct FwdFields : public TBase::message::FwdFields
         {
             /// @brief Extra options for @ref
-            ///     cc_mqttsn::message::FwdFields::Data
+            ///     cc_mqttsn::message::FwdFields::NodeId
             ///     field.
-            using Data =
+            using NodeId =
                 std::tuple<
                     comms::option::app::OrigDataView,
-                    typename TBase::message::FwdFields::Data
+                    typename TBase::message::FwdFields::NodeId
                 >;
         };
     }; // struct message
