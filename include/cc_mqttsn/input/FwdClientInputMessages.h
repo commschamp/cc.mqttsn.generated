@@ -6,7 +6,10 @@
 #pragma once
 
 #include <tuple>
+#include "cc_mqttsn/message/Advertise.h"
 #include "cc_mqttsn/message/Fwd.h"
+#include "cc_mqttsn/message/Gwinfo.h"
+#include "cc_mqttsn/message/Searchgw.h"
 #include "cc_mqttsn/options/DefaultOptions.h"
 
 namespace cc_mqttsn
@@ -21,6 +24,9 @@ namespace input
 template <typename TBase, typename TOpt = cc_mqttsn::options::DefaultOptions>
 using FwdClientInputMessages =
     std::tuple<
+        cc_mqttsn::message::Advertise<TBase, TOpt>,
+        cc_mqttsn::message::Searchgw<TBase, TOpt>,
+        cc_mqttsn::message::Gwinfo<TBase, TOpt>,
         cc_mqttsn::message::Fwd<TBase, TOpt>
     >;
 
@@ -34,6 +40,9 @@ using FwdClientInputMessages =
 /// @param interface_ Type of the common message interface.
 /// @param opts_ Type of the used protocol definition options.
 #define CC_MQTTSN_ALIASES_FOR_FWD_CLIENT_INPUT_MESSAGES(prefix_, suffix_, interface_, opts_) \
+    using prefix_ ## Advertise ## suffix_ = cc_mqttsn::message::Advertise<interface_, opts_>; \
+    using prefix_ ## Searchgw ## suffix_ = cc_mqttsn::message::Searchgw<interface_, opts_>; \
+    using prefix_ ## Gwinfo ## suffix_ = cc_mqttsn::message::Gwinfo<interface_, opts_>; \
     using prefix_ ## Fwd ## suffix_ = cc_mqttsn::message::Fwd<interface_, opts_>;
 
 /// @brief Create type aliases for the client input fwd platform messages of the protocol using default options.

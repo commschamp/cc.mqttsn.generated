@@ -27,10 +27,10 @@ namespace dispatch
 ///     @code
 ///     using MyInterface = cc_mqttsn::Message<...>;
 ///     using MyAdvertise = cc_mqttsn::message::Advertise<MyInterface, cc_mqttsn::options::DefaultOptions>;
-///     using MyGwinfo = cc_mqttsn::message::Gwinfo<MyInterface, cc_mqttsn::options::DefaultOptions>;
+///     using MySearchgw = cc_mqttsn::message::Searchgw<MyInterface, cc_mqttsn::options::DefaultOptions>;
 ///     struct MyHandler {
 ///         void handle(MyAdvertise& msg) {...}
-///         void handle(MyGwinfo& msg) {...}
+///         void handle(MySearchgw& msg) {...}
 ///         ...
 ///         // Handle all unexpected or irrelevant messages.
 ///         void handle(MyInterface& msg) {...}
@@ -50,6 +50,11 @@ auto dispatchProtClientInputMessage(
     case cc_mqttsn::MsgId_Advertise:
     {
         using MsgType = cc_mqttsn::message::Advertise<InterfaceType, TProtOptions>;
+        return handler.handle(static_cast<MsgType&>(msg));
+    }
+    case cc_mqttsn::MsgId_Searchgw:
+    {
+        using MsgType = cc_mqttsn::message::Searchgw<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
     case cc_mqttsn::MsgId_Gwinfo:
@@ -115,11 +120,6 @@ auto dispatchProtClientInputMessage(
     case cc_mqttsn::MsgId_Unsuback:
     {
         using MsgType = cc_mqttsn::message::Unsuback<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
-    }
-    case cc_mqttsn::MsgId_Pingreq:
-    {
-        using MsgType = cc_mqttsn::message::Pingreq<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
     case cc_mqttsn::MsgId_Pingresp:

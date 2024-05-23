@@ -51,6 +51,14 @@ struct BareMetalDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
+        ///     cc_mqttsn::field::NodeId field.
+        using NodeId =
+            std::tuple<
+                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
+                typename TBase::field::NodeId
+            >;
+
+        /// @brief Extra options for @ref
         ///     cc_mqttsn::field::TopicName field.
         using TopicName =
             std::tuple<
@@ -74,24 +82,6 @@ struct BareMetalDefaultOptionsT : public TBase
                 typename TBase::field::WillTopic
             >;
     }; // struct field
-
-    /// @brief Extra options for messages.
-    struct message : public TBase::message
-    {
-        /// @brief Extra options for fields of
-        ///     @ref cc_mqttsn::message::Fwd message.
-        struct FwdFields : public TBase::message::FwdFields
-        {
-            /// @brief Extra options for @ref
-            ///     cc_mqttsn::message::FwdFields::NodeId
-            ///     field.
-            using NodeId =
-                std::tuple<
-                    comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                    typename TBase::message::FwdFields::NodeId
-                >;
-        };
-    }; // struct message
 
     /// @brief Extra options for frames.
     struct frame : public TBase::frame

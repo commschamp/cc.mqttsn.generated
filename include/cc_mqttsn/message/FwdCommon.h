@@ -7,6 +7,7 @@
 #pragma once
 
 #include "cc_mqttsn/field/CtrlCommon.h"
+#include "cc_mqttsn/field/NodeIdCommon.h"
 
 namespace cc_mqttsn
 {
@@ -29,14 +30,7 @@ struct FwdFieldsCommon
 
     /// @brief Common types and functions for
     ///     @ref cc_mqttsn::message::FwdFields::NodeId field.
-    struct NodeIdCommon
-    {
-        /// @brief Name of the @ref cc_mqttsn::message::FwdFields::NodeId field.
-        static const char* name()
-        {
-            return "NodeId";
-        }
-    };
+    using NodeIdCommon = cc_mqttsn::field::NodeIdCommon;
 };
 
 /// @brief Common types and functions of 

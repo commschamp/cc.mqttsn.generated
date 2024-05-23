@@ -36,6 +36,10 @@ struct DefaultOptionsT : public TBase
         using GwAdd = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
+        ///     cc_mqttsn::field::NodeId field.
+        using NodeId = comms::option::EmptyOption;
+
+        /// @brief Extra options for @ref
         ///     cc_mqttsn::field::TopicName field.
         using TopicName = comms::option::EmptyOption;
 
@@ -103,6 +107,14 @@ struct DefaultOptionsT : public TBase
             using ClientId = comms::option::EmptyOption;
         };
 
+        /// @brief Extra options for @ref
+        ///     cc_mqttsn::message::Pingreq message.
+        using Pingreq = comms::option::EmptyOption;
+
+        /// @brief Extra options for @ref
+        ///     cc_mqttsn::message::Pingresp message.
+        using Pingresp = comms::option::EmptyOption;
+
         /// @brief Extra options for fields of
         ///     @ref cc_mqttsn::message::Publish message.
         struct PublishFields
@@ -122,10 +134,6 @@ struct DefaultOptionsT : public TBase
             ///     field.
             using TopicName = comms::option::EmptyOption;
         };
-
-        /// @brief Extra options for @ref
-        ///     cc_mqttsn::message::Searchgw message.
-        using Searchgw = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
         ///     cc_mqttsn::message::Suback message.

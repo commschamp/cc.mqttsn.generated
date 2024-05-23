@@ -49,7 +49,6 @@ template <typename TMsgBase, typename TOpt = cc_mqttsn::options::DefaultOptions>
 class Searchgw : public
     comms::MessageBase<
         TMsgBase,
-        typename TOpt::message::Searchgw,
         comms::option::def::StaticNumIdImpl<cc_mqttsn::MsgId_Searchgw>,
         comms::option::def::FieldsImpl<typename SearchgwFields<TOpt>::All>,
         comms::option::def::MsgType<Searchgw<TMsgBase, TOpt> >,
@@ -60,7 +59,6 @@ class Searchgw : public
     using Base =
         comms::MessageBase<
             TMsgBase,
-            typename TOpt::message::Searchgw,
             comms::option::def::StaticNumIdImpl<cc_mqttsn::MsgId_Searchgw>,
             comms::option::def::FieldsImpl<typename SearchgwFields<TOpt>::All>,
             comms::option::def::MsgType<Searchgw<TMsgBase, TOpt> >,

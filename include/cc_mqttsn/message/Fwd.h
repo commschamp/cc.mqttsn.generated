@@ -5,15 +5,14 @@
 
 #pragma once
 
-#include <cstdint>
 #include <tuple>
 #include "cc_mqttsn/MsgId.h"
 #include "cc_mqttsn/field/Ctrl.h"
 #include "cc_mqttsn/field/FieldBase.h"
+#include "cc_mqttsn/field/NodeId.h"
 #include "cc_mqttsn/message/FwdCommon.h"
 #include "cc_mqttsn/options/DefaultOptions.h"
 #include "comms/MessageBase.h"
-#include "comms/field/ArrayList.h"
 #include "comms/options.h"
 
 namespace cc_mqttsn
@@ -36,26 +35,11 @@ struct FwdFields
         >;
 
     /// @brief Definition of <b>"NodeId"</b> field.
-    class NodeId : public
-        comms::field::ArrayList<
-            cc_mqttsn::field::FieldBase<>,
-            std::uint8_t,
+    using NodeId =
+        cc_mqttsn::field::NodeId<
+            TOpt,
             typename TOpt::message::FwdFields::NodeId
-        >
-    {
-        using Base =
-            comms::field::ArrayList<
-                cc_mqttsn::field::FieldBase<>,
-                std::uint8_t,
-                typename TOpt::message::FwdFields::NodeId
-            >;
-    public:
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return cc_mqttsn::message::FwdFieldsCommon::NodeIdCommon::name();
-        }
-    };
+        >;
 
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<

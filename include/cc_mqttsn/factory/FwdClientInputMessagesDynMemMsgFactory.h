@@ -64,6 +64,9 @@ public:
 
         updateReasonFunc(CreateFailureReason::None);
         switch (id) {
+            case cc_mqttsn::MsgId_Advertise: return MsgPtr(new cc_mqttsn::message::Advertise<TInterface, TProtOptions>);
+            case cc_mqttsn::MsgId_Searchgw: return MsgPtr(new cc_mqttsn::message::Searchgw<TInterface, TProtOptions>);
+            case cc_mqttsn::MsgId_Gwinfo: return MsgPtr(new cc_mqttsn::message::Gwinfo<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Fwd: return MsgPtr(new cc_mqttsn::message::Fwd<TInterface, TProtOptions>);
             default: break;
         }
@@ -93,6 +96,9 @@ public:
     {
         switch (id)
         {
+            case cc_mqttsn::MsgId_Advertise: return 1U;
+            case cc_mqttsn::MsgId_Searchgw: return 1U;
+            case cc_mqttsn::MsgId_Gwinfo: return 1U;
             case cc_mqttsn::MsgId_Fwd: return 1U;
             default: break;
         }

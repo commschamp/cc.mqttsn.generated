@@ -79,7 +79,6 @@ public:
             case cc_mqttsn::MsgId_Subscribe: return MsgPtr(new cc_mqttsn::message::Subscribe<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Unsubscribe: return MsgPtr(new cc_mqttsn::message::Unsubscribe<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Pingreq: return MsgPtr(new cc_mqttsn::message::Pingreq<TInterface, TProtOptions>);
-            case cc_mqttsn::MsgId_Pingresp: return MsgPtr(new cc_mqttsn::message::Pingresp<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Disconnect: return MsgPtr(new cc_mqttsn::message::Disconnect<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Willtopicupd: return MsgPtr(new cc_mqttsn::message::Willtopicupd<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Willmsgupd: return MsgPtr(new cc_mqttsn::message::Willmsgupd<TInterface, TProtOptions>);
@@ -127,7 +126,6 @@ public:
             case cc_mqttsn::MsgId_Subscribe: return 1U;
             case cc_mqttsn::MsgId_Unsubscribe: return 1U;
             case cc_mqttsn::MsgId_Pingreq: return 1U;
-            case cc_mqttsn::MsgId_Pingresp: return 1U;
             case cc_mqttsn::MsgId_Disconnect: return 1U;
             case cc_mqttsn::MsgId_Willtopicupd: return 1U;
             case cc_mqttsn::MsgId_Willmsgupd: return 1U;

@@ -26,11 +26,11 @@ namespace dispatch
 ///     to handle and one for the interface class as well.
 ///     @code
 ///     using MyInterface = cc_mqttsn::Message<...>;
-///     using MyFwd = cc_mqttsn::message::Fwd<MyInterface, cc_mqttsn::options::DefaultOptions>;
-///     using MySomeOtherMessage = SomeOtherMessage<MyInterface, cc_mqttsn::options::DefaultOptions>;
+///     using MyAdvertise = cc_mqttsn::message::Advertise<MyInterface, cc_mqttsn::options::DefaultOptions>;
+///     using MySearchgw = cc_mqttsn::message::Searchgw<MyInterface, cc_mqttsn::options::DefaultOptions>;
 ///     struct MyHandler {
-///         void handle(MyFwd& msg) {...}
-///         void handle(MySomeOtherMessage& msg) {...}
+///         void handle(MyAdvertise& msg) {...}
+///         void handle(MySearchgw& msg) {...}
 ///         ...
 ///         // Handle all unexpected or irrelevant messages.
 ///         void handle(MyInterface& msg) {...}
@@ -47,6 +47,21 @@ auto dispatchFwdClientInputMessage(
 {
     using InterfaceType = typename std::decay<decltype(msg)>::type;
     switch(id) {
+    case cc_mqttsn::MsgId_Advertise:
+    {
+        using MsgType = cc_mqttsn::message::Advertise<InterfaceType, TProtOptions>;
+        return handler.handle(static_cast<MsgType&>(msg));
+    }
+    case cc_mqttsn::MsgId_Searchgw:
+    {
+        using MsgType = cc_mqttsn::message::Searchgw<InterfaceType, TProtOptions>;
+        return handler.handle(static_cast<MsgType&>(msg));
+    }
+    case cc_mqttsn::MsgId_Gwinfo:
+    {
+        using MsgType = cc_mqttsn::message::Gwinfo<InterfaceType, TProtOptions>;
+        return handler.handle(static_cast<MsgType&>(msg));
+    }
     case cc_mqttsn::MsgId_Fwd:
     {
         using MsgType = cc_mqttsn::message::Fwd<InterfaceType, TProtOptions>;
