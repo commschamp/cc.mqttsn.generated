@@ -122,6 +122,11 @@ auto dispatchClientInputMessage(
         using MsgType = cc_mqttsn::message::Unsuback<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
+    case cc_mqttsn::MsgId_Pingreq:
+    {
+        using MsgType = cc_mqttsn::message::Pingreq<InterfaceType, TProtOptions>;
+        return handler.handle(static_cast<MsgType&>(msg));
+    }
     case cc_mqttsn::MsgId_Pingresp:
     {
         using MsgType = cc_mqttsn::message::Pingresp<InterfaceType, TProtOptions>;

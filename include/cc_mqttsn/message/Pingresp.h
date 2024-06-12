@@ -39,7 +39,6 @@ template <typename TMsgBase, typename TOpt = cc_mqttsn::options::DefaultOptions>
 class Pingresp : public
     comms::MessageBase<
         TMsgBase,
-        typename TOpt::message::Pingresp,
         comms::option::def::StaticNumIdImpl<cc_mqttsn::MsgId_Pingresp>,
         comms::option::def::FieldsImpl<typename PingrespFields<TOpt>::All>,
         comms::option::def::MsgType<Pingresp<TMsgBase, TOpt> >,
@@ -50,7 +49,6 @@ class Pingresp : public
     using Base =
         comms::MessageBase<
             TMsgBase,
-            typename TOpt::message::Pingresp,
             comms::option::def::StaticNumIdImpl<cc_mqttsn::MsgId_Pingresp>,
             comms::option::def::FieldsImpl<typename PingrespFields<TOpt>::All>,
             comms::option::def::MsgType<Pingresp<TMsgBase, TOpt> >,

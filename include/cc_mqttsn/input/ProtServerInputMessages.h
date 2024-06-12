@@ -10,6 +10,7 @@
 #include "cc_mqttsn/message/Disconnect.h"
 #include "cc_mqttsn/message/Gwinfo.h"
 #include "cc_mqttsn/message/Pingreq.h"
+#include "cc_mqttsn/message/Pingresp.h"
 #include "cc_mqttsn/message/Puback.h"
 #include "cc_mqttsn/message/Pubcomp.h"
 #include "cc_mqttsn/message/Publish.h"
@@ -53,6 +54,7 @@ using ProtServerInputMessages =
         cc_mqttsn::message::Subscribe<TBase, TOpt>,
         cc_mqttsn::message::Unsubscribe<TBase, TOpt>,
         cc_mqttsn::message::Pingreq<TBase, TOpt>,
+        cc_mqttsn::message::Pingresp<TBase, TOpt>,
         cc_mqttsn::message::Disconnect<TBase, TOpt>,
         cc_mqttsn::message::Willtopicupd<TBase, TOpt>,
         cc_mqttsn::message::Willmsgupd<TBase, TOpt>
@@ -83,6 +85,7 @@ using ProtServerInputMessages =
     using prefix_ ## Subscribe ## suffix_ = cc_mqttsn::message::Subscribe<interface_, opts_>; \
     using prefix_ ## Unsubscribe ## suffix_ = cc_mqttsn::message::Unsubscribe<interface_, opts_>; \
     using prefix_ ## Pingreq ## suffix_ = cc_mqttsn::message::Pingreq<interface_, opts_>; \
+    using prefix_ ## Pingresp ## suffix_ = cc_mqttsn::message::Pingresp<interface_, opts_>; \
     using prefix_ ## Disconnect ## suffix_ = cc_mqttsn::message::Disconnect<interface_, opts_>; \
     using prefix_ ## Willtopicupd ## suffix_ = cc_mqttsn::message::Willtopicupd<interface_, opts_>; \
     using prefix_ ## Willmsgupd ## suffix_ = cc_mqttsn::message::Willmsgupd<interface_, opts_>;

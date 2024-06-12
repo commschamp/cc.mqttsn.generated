@@ -48,24 +48,6 @@ struct ServerDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
-        ///     cc_mqttsn::message::Pingreq message.
-        using Pingreq =
-            std::tuple<
-                comms::option::app::NoWriteImpl,
-                comms::option::app::NoRefreshImpl,
-                typename TBase::message::Pingreq
-            >;
-
-        /// @brief Extra options for @ref
-        ///     cc_mqttsn::message::Pingresp message.
-        using Pingresp =
-            std::tuple<
-                comms::option::app::NoReadImpl,
-                comms::option::app::NoDispatchImpl,
-                typename TBase::message::Pingresp
-            >;
-
-        /// @brief Extra options for @ref
         ///     cc_mqttsn::message::Suback message.
         using Suback =
             std::tuple<

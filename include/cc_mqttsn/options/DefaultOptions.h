@@ -107,14 +107,6 @@ struct DefaultOptionsT : public TBase
             using ClientId = comms::option::EmptyOption;
         };
 
-        /// @brief Extra options for @ref
-        ///     cc_mqttsn::message::Pingreq message.
-        using Pingreq = comms::option::EmptyOption;
-
-        /// @brief Extra options for @ref
-        ///     cc_mqttsn::message::Pingresp message.
-        using Pingresp = comms::option::EmptyOption;
-
         /// @brief Extra options for fields of
         ///     @ref cc_mqttsn::message::Publish message.
         struct PublishFields

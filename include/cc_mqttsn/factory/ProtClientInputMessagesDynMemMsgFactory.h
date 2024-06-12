@@ -79,6 +79,7 @@ public:
             case cc_mqttsn::MsgId_Pubrel: return MsgPtr(new cc_mqttsn::message::Pubrel<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Suback: return MsgPtr(new cc_mqttsn::message::Suback<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Unsuback: return MsgPtr(new cc_mqttsn::message::Unsuback<TInterface, TProtOptions>);
+            case cc_mqttsn::MsgId_Pingreq: return MsgPtr(new cc_mqttsn::message::Pingreq<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Pingresp: return MsgPtr(new cc_mqttsn::message::Pingresp<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Disconnect: return MsgPtr(new cc_mqttsn::message::Disconnect<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Willtopicresp: return MsgPtr(new cc_mqttsn::message::Willtopicresp<TInterface, TProtOptions>);
@@ -126,6 +127,7 @@ public:
             case cc_mqttsn::MsgId_Pubrel: return 1U;
             case cc_mqttsn::MsgId_Suback: return 1U;
             case cc_mqttsn::MsgId_Unsuback: return 1U;
+            case cc_mqttsn::MsgId_Pingreq: return 1U;
             case cc_mqttsn::MsgId_Pingresp: return 1U;
             case cc_mqttsn::MsgId_Disconnect: return 1U;
             case cc_mqttsn::MsgId_Willtopicresp: return 1U;

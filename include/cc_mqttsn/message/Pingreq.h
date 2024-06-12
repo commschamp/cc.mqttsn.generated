@@ -50,7 +50,6 @@ template <typename TMsgBase, typename TOpt = cc_mqttsn::options::DefaultOptions>
 class Pingreq : public
     comms::MessageBase<
         TMsgBase,
-        typename TOpt::message::Pingreq,
         comms::option::def::StaticNumIdImpl<cc_mqttsn::MsgId_Pingreq>,
         comms::option::def::FieldsImpl<typename PingreqFields<TOpt>::All>,
         comms::option::def::MsgType<Pingreq<TMsgBase, TOpt> >,
@@ -61,7 +60,6 @@ class Pingreq : public
     using Base =
         comms::MessageBase<
             TMsgBase,
-            typename TOpt::message::Pingreq,
             comms::option::def::StaticNumIdImpl<cc_mqttsn::MsgId_Pingreq>,
             comms::option::def::FieldsImpl<typename PingreqFields<TOpt>::All>,
             comms::option::def::MsgType<Pingreq<TMsgBase, TOpt> >,

@@ -11,6 +11,7 @@
 #include "cc_mqttsn/message/Disconnect.h"
 #include "cc_mqttsn/message/Fwd.h"
 #include "cc_mqttsn/message/Gwinfo.h"
+#include "cc_mqttsn/message/Pingreq.h"
 #include "cc_mqttsn/message/Pingresp.h"
 #include "cc_mqttsn/message/Puback.h"
 #include "cc_mqttsn/message/Pubcomp.h"
@@ -55,6 +56,7 @@ using GwClientInputMessages =
         cc_mqttsn::message::Pubrel<TBase, TOpt>,
         cc_mqttsn::message::Suback<TBase, TOpt>,
         cc_mqttsn::message::Unsuback<TBase, TOpt>,
+        cc_mqttsn::message::Pingreq<TBase, TOpt>,
         cc_mqttsn::message::Pingresp<TBase, TOpt>,
         cc_mqttsn::message::Disconnect<TBase, TOpt>,
         cc_mqttsn::message::Willtopicresp<TBase, TOpt>,
@@ -87,6 +89,7 @@ using GwClientInputMessages =
     using prefix_ ## Pubrel ## suffix_ = cc_mqttsn::message::Pubrel<interface_, opts_>; \
     using prefix_ ## Suback ## suffix_ = cc_mqttsn::message::Suback<interface_, opts_>; \
     using prefix_ ## Unsuback ## suffix_ = cc_mqttsn::message::Unsuback<interface_, opts_>; \
+    using prefix_ ## Pingreq ## suffix_ = cc_mqttsn::message::Pingreq<interface_, opts_>; \
     using prefix_ ## Pingresp ## suffix_ = cc_mqttsn::message::Pingresp<interface_, opts_>; \
     using prefix_ ## Disconnect ## suffix_ = cc_mqttsn::message::Disconnect<interface_, opts_>; \
     using prefix_ ## Willtopicresp ## suffix_ = cc_mqttsn::message::Willtopicresp<interface_, opts_>; \
