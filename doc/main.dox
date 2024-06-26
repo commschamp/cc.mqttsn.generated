@@ -36,15 +36,6 @@
 /// @n If protocol defines any uni-directional message, then it is recommended to use
 /// either @ref cc_mqttsn::input::ServerInputMessages (from @b cc_mqttsn/input/ServerInputMessages.h)
 /// or @ref cc_mqttsn::input::ClientInputMessages  (from @b cc_mqttsn/input/ClientInputMessages.h)
-///
-/// There are also platform specific definitions:
-/// @li @ref cc_mqttsn::input::FwdServerInputMessages (from @b cc_mqttsn/input/FwdServerInputMessages.h).
-/// @li @ref cc_mqttsn::input::FwdClientInputMessages (from @b cc_mqttsn/input/FwdClientInputMessages.h).
-/// @li @ref cc_mqttsn::input::GwServerInputMessages (from @b cc_mqttsn/input/GwServerInputMessages.h).
-/// @li @ref cc_mqttsn::input::GwClientInputMessages (from @b cc_mqttsn/input/GwClientInputMessages.h).
-/// @li @ref cc_mqttsn::input::ProtServerInputMessages (from @b cc_mqttsn/input/ProtServerInputMessages.h).
-/// @li @ref cc_mqttsn::input::ProtClientInputMessages (from @b cc_mqttsn/input/ProtClientInputMessages.h).
-///
 /// @b NOTE, that the frame definition does not exactly follow the recommended
 /// instructions from <b>Protocol Stack Definition Tutorial</b> page of @b COMMS
 /// library documentation. The extra customization (see @ref main_customization below)
@@ -54,15 +45,6 @@
 /// @li @ref cc_mqttsn::input::AllMessages (from @b cc_mqttsn/input/AllMessages.h header file).
 /// @li @ref cc_mqttsn::input::ServerInputMessages (from @b cc_mqttsn/input/ServerInputMessages.h header file).
 /// @li @ref cc_mqttsn::input::ClientInputMessages (from @b cc_mqttsn/input/ClientInputMessages.h header file).
-/// @li @ref cc_mqttsn::input::FwdMessages (from @b cc_mqttsn/input/FwdMessages.h header file).
-/// @li @ref cc_mqttsn::input::FwdServerInputMessages (from @b cc_mqttsn/input/FwdServerInputMessages.h header file).
-/// @li @ref cc_mqttsn::input::FwdClientInputMessages (from @b cc_mqttsn/input/FwdClientInputMessages.h header file).
-/// @li @ref cc_mqttsn::input::GwMessages (from @b cc_mqttsn/input/GwMessages.h header file).
-/// @li @ref cc_mqttsn::input::GwServerInputMessages (from @b cc_mqttsn/input/GwServerInputMessages.h header file).
-/// @li @ref cc_mqttsn::input::GwClientInputMessages (from @b cc_mqttsn/input/GwClientInputMessages.h header file).
-/// @li @ref cc_mqttsn::input::ProtMessages (from @b cc_mqttsn/input/ProtMessages.h header file).
-/// @li @ref cc_mqttsn::input::ProtServerInputMessages (from @b cc_mqttsn/input/ProtServerInputMessages.h header file).
-/// @li @ref cc_mqttsn::input::ProtClientInputMessages (from @b cc_mqttsn/input/ProtClientInputMessages.h header file).
 ///
 /// @section main_dispatch Dispatching Message Objects
 /// While the @b COMMS library provides various built-in ways of 
@@ -85,42 +67,6 @@
 /// (defined in @b cc_mqttsn/dispatch/DispatchClientInputMessage.h header file).
 /// @li @ref cc_mqttsn::dispatch::dispatchClientInputMessageDefaultOptions()
 /// (defined in @b cc_mqttsn/dispatch/DispatchClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchFwdMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchFwdMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchFwdServerInputMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchFwdServerInputMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchFwdClientInputMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchFwdClientInputMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchGwMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchGwMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchGwServerInputMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchGwServerInputMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchGwClientInputMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchGwClientInputMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchProtMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchProtMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchProtServerInputMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchProtServerInputMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchProtClientInputMessage()
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::dispatchProtClientInputMessageDefaultOptions()
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtClientInputMessage.h header file).
 ///
 /// There are also some dispatcher objects to be used with
 /// @b comms::processAllWithDispatchViaDispatcher() function or similar.
@@ -136,42 +82,6 @@
 /// (defined in @b cc_mqttsn/dispatch/DispatchClientInputMessage.h header file).
 /// @li @ref cc_mqttsn::dispatch::ClientInputMsgDispatcherDefaultOptions
 /// (defined in @b cc_mqttsn/dispatch/DispatchClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::FwdMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::FwdMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::FwdServerInputMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::FwdServerInputMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::FwdClientInputMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::FwdClientInputMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchFwdClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::GwMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::GwMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::GwServerInputMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::GwServerInputMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::GwClientInputMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::GwClientInputMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchGwClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::ProtMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::ProtMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::ProtServerInputMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::ProtServerInputMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtServerInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::ProtClientInputMsgDispatcher
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtClientInputMessage.h header file).
-/// @li @ref cc_mqttsn::dispatch::ProtClientInputMsgDispatcherDefaultOptions
-/// (defined in @b cc_mqttsn/dispatch/DispatchProtClientInputMessage.h header file).
 ///
 /// @section main_customization Customization
 /// Depending on the value of @b customization option passed to the @b commsdsl2comms
