@@ -17,7 +17,7 @@
 #define CC_MQTTSN_MINOR_VERSION (8)
 
 /// @brief Patch version of the protocol library.
-#define CC_MQTTSN_PATCH_VERSION (0)
+#define CC_MQTTSN_PATCH_VERSION (1)
 
 /// @brief Full version of the protocol library as single number.
 #define CC_MQTTSN_VERSION (COMMS_MAKE_VERSION(CC_MQTTSN_MAJOR_VERSION, CC_MQTTSN_MINOR_VERSION, CC_MQTTSN_PATCH_VERSION))

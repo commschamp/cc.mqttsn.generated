@@ -45,6 +45,14 @@ struct DataViewDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
+        ///     cc_mqttsn::field::NodeId field.
+        using NodeId =
+            std::tuple<
+                comms::option::app::OrigDataView,
+                typename TBase::field::NodeId
+            >;
+
+        /// @brief Extra options for @ref
         ///     cc_mqttsn::field::TopicName field.
         using TopicName =
             std::tuple<
