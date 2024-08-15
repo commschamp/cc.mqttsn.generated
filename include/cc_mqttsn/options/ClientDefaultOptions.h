@@ -48,15 +48,6 @@ struct ClientDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
-        ///     cc_mqttsn::message::Searchgw message.
-        using Searchgw =
-            std::tuple<
-                comms::option::app::NoReadImpl,
-                comms::option::app::NoDispatchImpl,
-                typename TBase::message::Searchgw
-            >;
-
-        /// @brief Extra options for @ref
         ///     cc_mqttsn::message::Suback message.
         using Suback =
             std::tuple<

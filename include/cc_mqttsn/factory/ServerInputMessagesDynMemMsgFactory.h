@@ -83,6 +83,7 @@ public:
             case cc_mqttsn::MsgId_Disconnect: return MsgPtr(new cc_mqttsn::message::Disconnect<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Willtopicupd: return MsgPtr(new cc_mqttsn::message::Willtopicupd<TInterface, TProtOptions>);
             case cc_mqttsn::MsgId_Willmsgupd: return MsgPtr(new cc_mqttsn::message::Willmsgupd<TInterface, TProtOptions>);
+            case cc_mqttsn::MsgId_Fwd: return MsgPtr(new cc_mqttsn::message::Fwd<TInterface, TProtOptions>);
             default: break;
         }
 
@@ -130,6 +131,7 @@ public:
             case cc_mqttsn::MsgId_Disconnect: return 1U;
             case cc_mqttsn::MsgId_Willtopicupd: return 1U;
             case cc_mqttsn::MsgId_Willmsgupd: return 1U;
+            case cc_mqttsn::MsgId_Fwd: return 1U;
             default: break;
         }
 

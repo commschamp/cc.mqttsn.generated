@@ -36,6 +36,10 @@ struct DefaultOptionsT : public TBase
         using GwAdd = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
+        ///     cc_mqttsn::field::NodeId field.
+        using NodeId = comms::option::EmptyOption;
+
+        /// @brief Extra options for @ref
         ///     cc_mqttsn::field::TopicName field.
         using TopicName = comms::option::EmptyOption;
 
@@ -72,6 +76,16 @@ struct DefaultOptionsT : public TBase
         /// @brief Extra options for @ref
         ///     cc_mqttsn::message::Connect message.
         using Connect = comms::option::EmptyOption;
+
+        /// @brief Extra options for fields of
+        ///     @ref cc_mqttsn::message::Fwd message.
+        struct FwdFields
+        {
+            /// @brief Extra options for @ref
+            ///     cc_mqttsn::message::FwdFields::NodeId
+            ///     field.
+            using NodeId = comms::option::EmptyOption;
+        };
 
         /// @brief Extra options for fields of
         ///     @ref cc_mqttsn::message::Gwinfo message.
@@ -112,10 +126,6 @@ struct DefaultOptionsT : public TBase
             ///     field.
             using TopicName = comms::option::EmptyOption;
         };
-
-        /// @brief Extra options for @ref
-        ///     cc_mqttsn::message::Searchgw message.
-        using Searchgw = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
         ///     cc_mqttsn::message::Suback message.

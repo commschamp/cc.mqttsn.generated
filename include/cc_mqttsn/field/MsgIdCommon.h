@@ -91,7 +91,8 @@ struct MsgIdCommon
             std::make_pair(cc_mqttsn::MsgId_Willtopicupd, "WILLTOPICUPD"),
             std::make_pair(cc_mqttsn::MsgId_Willtopicresp, "WILLTOPICRESP"),
             std::make_pair(cc_mqttsn::MsgId_Willmsgupd, "WILLMSGUPD"),
-            std::make_pair(cc_mqttsn::MsgId_Willmsgresp, "WILLMSGRESP")
+            std::make_pair(cc_mqttsn::MsgId_Willmsgresp, "WILLMSGRESP"),
+            std::make_pair(cc_mqttsn::MsgId_Fwd, "FWD")
         };
         static const std::size_t MapSize = std::extent<decltype(Map)>::value;
 
