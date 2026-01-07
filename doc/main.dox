@@ -267,4 +267,3 @@
 ///         cc_mqttsn::options::ClientDefaultOptions
 ///     >;
 /// @endcode
-
